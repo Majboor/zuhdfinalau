@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminders and Seerah Series</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+        }
+        
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Reminders Section */
+        .reminders-section {
+            background-image: url('/herobg.png');
+            padding-top: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .reminders-heading {
+            text-align: center;
+            color: #C9913D;
+            font-size: 45px;
+            margin-bottom: 40px;
+        }
+        
+        .reminders-carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .reminders-carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .reminders-carousel-item {
+            flex: 0 0 calc(25% - 20px);
+            height: 500px;
+            background-color: #fff;
+            margin: 0 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .reminders-carousel-item iframe {
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .reminders-carousel-navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .reminders-carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .reminders-carousel-dot-active {
+            background-color: #C9913D;
+        }
+        
+        /* Seerah Series Sections - Common Styles */
+        .seerah-section {
+            margin-bottom: 80px;
+            min-height: 80vh;
+            background-size: cover;
+            background-position: center;
+            padding: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .seerah-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        /* Seerah Section Backgrounds */
+        .seerah-section-1 {
+            background-image: url(/acadmyimg/The\ Seerah\ Series\ Banner.jpg);
+        }
+        
+        .seerah-section-2 {
+            background-image: url(/acadmyimg/Pre-Ramadan\ Workshop.jpg);
+        }
+        
+        .seerah-section-3 {
+            background-image: url(/acadmyimg/Dr.\ Mufti\ Abdur\ Rahman\ Mangera.jpg);
+        }
+        
+        .seerah-section-4 {
+            background-image: url(/acadmyimg/Sheikh.jpg);
+        }
+        
+        .seerah-title-wrapper {
+            padding: 40px 60px;
+            position: relative;
+            color: white;
+            z-index: 2;
+        }
+        
+        .seerah-heading {
+            font-size: 55px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            line-height:33px;
+            width: 500px;
+            margin-bottom: 10px;
+        }
+        
+        .seerah-heading1 {
+            font-size: 55px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 500;
+            text-align: end;
+            line-height: 60px;
+            margin-bottom: 10px;
+            display: flex;
+            width: 300px;
+            justify-content: flex-end;
+        }
+        
+        .seerah-subheading {
+            font-size: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            line-height: 60px;
+            margin-top: 0;
+        }
+        
+        .seerah-subheading1 {
+            font-size: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            margin-top: 0;
+            text-align: end;
+            line-height: 60px;
+        }
+        
+        .seerah-cards-wrapper {
+            display: flex;
+            justify-content: space-around;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .seerah-card-container {
+            flex: 0 0 30%;
+            margin-bottom: 30px;
+        }
+        
+        .seerah-card-item {
+            border-radius: 10px;
+            height: 190px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        
+        .seerah-card-item iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            display: block;
+        }
+        
+        .seerah-card-text {
+            padding: 15px;
+            color: white;
+            font-size: 16px;
+            line-height: 1.5;
+            border-radius: 8px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Tour Section Styles */
+        .tour-title-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 40px 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tour-heading {
+            width: 100%;
+            font-size: 55px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            line-height: 60px;
+            text-align: end;
+            color: white;
+        }
+        
+        .tour-heading span {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: block;
+            font-weight: 400;
+            font-size: 60px;
+        }
+        
+        .tour-subheading {
+            font-size: 30px;
+            font-weight: 300;
+            color: #ffffff;
+            line-height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .head2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: block;
+            font-weight: 400;
+            font-size: 60px;
+            line-height: 60px;
+        }
+        
+        .seerah-subheading2 {
+            font-size: 30px;
+            font-weight: 300;
+            color: #ffffff;
+            line-height: 30px;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 50px 20px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 60px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            height: 80px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+        
+        .newsletter {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+        
+        .newsletter input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .newsletter button {
+            background-color: #c99c31;
+            color: #fff;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: #c99c31;
+        }
+        
+        .footer-column h3 {
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            padding-left: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ca9836;
+        }
+        
+        .hiring-tag {
+            background-color: #ca9836;
+            color: #000;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            color: #ca9836;
+        }
+        
+        .preferences h3 {
+            margin-top: 20px;
+        }
+        
+        .preference-select {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background-color: #333;
+            margin: 30px 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .payment-method img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .footer-bottom p {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 1024px) {
+            .reminders-carousel-item {
+                flex: 0 0 calc(33.333% - 20px);
+            }
+            
+            .seerah-card-container {
+                flex: 0 0 45%;
+            }
+            
+            .seerah-heading, .seerah-heading1 {
+                font-size: 45px;
+                line-height: 50px;
+                width: auto;
+                max-width: 400px;
+            }
+            
+            .seerah-subheading, .seerah-subheading1 {
+                font-size: 40px;
+                line-height: 45px;
+            }
+            
+            .tour-heading {
+                font-size: 45px;
+                line-height: 50px;
+            }
+            
+            .tour-heading span, .head2 {
+                font-size: 50px;
+                line-height: 55px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 15px;
+            }
+            
+            .reminders-section {
+                margin-bottom: 40px;
+            }
+            
+            .reminders-heading {
+                font-size: 36px;
+                margin-bottom: 30px;
+            }
+            
+            .reminders-carousel-item {
+                flex: 0 0 calc(50% - 20px);
+                height: 400px;
+            }
+            
+            .seerah-section {
+                margin-bottom: 60px;
+                min-height: auto;
+                padding: 30px 0;
+            }
+            
+            .seerah-title-wrapper, .tour-title-wrapper {
+                padding: 30px;
+            }
+            
+            .seerah-heading, .seerah-heading1 {
+                font-size: 36px;
+                line-height: 10px;
+                width: auto;
+            }
+            
+            .seerah-subheading, .seerah-subheading1 {
+                font-size: 32px;
+                line-height: 36px;
+            }
+            
+            .seerah-cards-wrapper {
+                margin-top: 30px;
+                padding: 0 15px;
+            }
+            
+            .seerah-card-container {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .tour-heading {
+                font-size: 36px;
+                line-height: 40px;
+            }
+            
+            .tour-heading span, .head2 {
+                font-size: 40px;
+                line-height: 44px;
+            }
+            
+            .tour-subheading, .seerah-subheading2 {
+                font-size: 26px;
+                line-height: 30px;
+                margin-bottom: 15px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .reminders-heading {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+            
+            .reminders-carousel-item {
+                flex: 0 0 100%;
+                margin: 0 0 15px 0;
+                height: 300px;
+            }
+            
+            .seerah-section {
+                margin-bottom: 40px;
+                padding: 20px 0;
+            }
+            
+            .seerah-title-wrapper, .tour-title-wrapper {
+                padding: 20px 15px;
+            }
+            
+            .seerah-heading, .seerah-heading1 {
+                font-size: 28px;
+                line-height: 10px;
+                width: 100%;
+            }
+            
+            .seerah-subheading, .seerah-subheading1 {
+                font-size: 24px;
+                line-height: 28px;
+            }
+            
+            .seerah-cards-wrapper {
+                margin-top: 20px;
+            }
+            
+            .seerah-card-item {
+                height: 180px;
+            }
+            
+            .tour-heading {
+                font-size: 28px;
+                line-height: 32px;
+                padding: 0;
+            }
+            
+            .tour-heading span, .head2 {
+                font-size: 30px;
+                line-height: 34px;
+            }
+            
+            .tour-subheading {
+                font-size: 20px;
+                line-height: 24px;
+                padding: 0;
+            }
+            
+            .seerah-subheading2 {
+                font-size: 20px;
+                line-height: 24px;
+            }
+            
+            .newsletter {
+                flex-direction: column;
+            }
+            
+            .newsletter input, .newsletter button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="navbar"></div>
+    </nav>
+    
+    <div class="page-container">
+        <!-- Reminders Section -->
+        <section class="reminders-section">
+            <h2 class="reminders-heading">Reminders</h2>
+            <div class="reminders-carousel-wrapper">
+                <div class="reminders-carousel-track" id="reminders-carousel">
+                    <div class="reminders-carousel-item">
+                        <iframe src="https://www.youtube.com/embed/IRnMefTf24s" title="Zuhd.au Highlights of 2023" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="reminders-carousel-item">
+                        <iframe src="https://www.youtube.com/embed/oZ9SMBaleFE" title="What can we learn from Gaza?" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="reminders-carousel-item">
+                        <iframe src="https://www.youtube.com/embed/andLT5ohrKc" title="What is zuhd? | Dr. Mufti Abdur-Rahman ibn Yusuf Mangera" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="reminders-carousel-item">
+                        <iframe src="https://www.youtube.com/embed/82MrDpTG2ig" title="Who is a True Muslim? | Maulana Suleman Khatani Explores Deeply on Zuhd.au" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="reminders-carousel-item">
+                        <iframe src="https://www.youtube.com/embed/NycSNEqPilo" title="Discover Unique Kids Thobe Designs: Exclusively at Zuhd Store" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="reminders-carousel-item">
+                        <iframe src="https://www.youtube.com/embed/vCZr2V-Jf4I" title="The Purpose of Fasting by Dr. Mufti Abdur Rahman Mangera" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="reminders-carousel-item">
+                        <iframe src="https://www.youtube.com/embed/mBrl2Vv6wnc" title="Our Reliance is with Allah by Sheikh Hasan Ali" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="reminders-carousel-item">
+                        <iframe src="https://www.youtube.com/embed/7KOzh9k1n5k" title="How to Control your Desires by Sheikh Yasir Al-Hanafi" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="reminders-carousel-navigation" id="carousel-dots">
+                <span class="reminders-carousel-dot reminders-carousel-dot-active" data-index="0"></span>
+                <span class="reminders-carousel-dot" data-index="1"></span>
+                <span class="reminders-carousel-dot" data-index="2"></span>
+            </div>
+        </section>
+        
+        <!-- Seerah Series Section 1 -->
+        <section class="seerah-section seerah-section-1">
+            <div class="seerah-title-wrapper">
+                <h2 class="seerah-heading">The Seerah</h2>
+                <p class="seerah-subheading">Series</p>
+            </div>
+            <div class="seerah-cards-wrapper">
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/NswPl0cJ6iA" title="Seerah Series: The Battle of Tabook (Part 1) with Maulana Sami Al-Hashmi" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/-TUt7giwVNc" title="Seerah Series: The Battle of Tabook (Part 2) with Maulana Sami Al-Hashmi" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/xq3jzMVSCdQ" title="Seerah Series: The Battle of Tabook (Part 3) with Maulana Sami Al-Hashmi" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seerah Series Section 2 -->
+        <section class="seerah-section seerah-section-2">
+            <div class="seerah-title-wrapper">
+                <h2 class="seerah-heading">Pre-Ramadan</h2>
+                <p class="seerah-subheading">Workshop</p>
+            </div>
+            <div class="seerah-cards-wrapper">
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/NHkvBZ42bwo?list=PLA-ylo0o2Z5nEQmhT106MVTHORxLNSuJ7" title="Pre-Ramadan Workshop (Part 1) Benefits &amp; Utilizing Ramadan" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/cEARqhBcdII?list=PLA-ylo0o2Z5nEQmhT106MVTHORxLNSuJ7" title="Pre-Ramadan Workshop (Part 2) Fiqh of Ramadan" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/V0bDVegibmc?list=PLA-ylo0o2Z5nEQmhT106MVTHORxLNSuJ7" title="Pre Ramadan Workshop (Part 3) Ramadan of The Pious" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seerah Series Section 3 -->
+        <section class="seerah-section seerah-section-3">
+            <div class="tour-title-wrapper">
+                <h2 class="tour-heading">
+                    Dr. Mufti Abdur<br>
+                    <span>Rahman Mangera</span>
+                </h2>
+                <p class="tour-subheading">Australia Tour</p>
+            </div>
+            <div class="seerah-cards-wrapper">
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/IlepnKAG_mQ" title="In Conversation with Mufti Sahab Your Questions Answered by Dr. Mufti Abdur Rahman Mangera" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/RK-PlD5NDN0" title="The Dangers of Public Sin An Islamic Perspective by Dr. Mufti Abdur Rahman Mangera" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/RK-PlD5NDN0" title="The Dangers of Public Sin An Islamic Perspective by Dr. Mufti Abdur Rahman Mangera" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seerah Series Section 4 -->
+        <section class="seerah-section seerah-section-4">
+            <div class="seerah-title-wrapper">
+                <h2 class="seerah-heading">Sheikh</h2>
+                <h2 class="head2">Hassan Ali</h2>
+                <p class="seerah-subheading2">Founder Safar Academy</p>
+            </div>
+            <div class="seerah-cards-wrapper">
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/UqWsw5wztJg" title="Youth Q &amp; A with Sheikh Hassan Ali at Al Siraat College" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/VhS7NaWTHgc" title="The Help of Allah by Sheikh Hassan Ali" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="seerah-card-container">
+                    <div class="seerah-card-item">
+                        <iframe src="https://www.youtube.com/embed/YmGlfueDQAM" title="The Prophet Series: Timeless Lessons with Sheikh Hassan Ali – Coming Soon to Zuhd Guidance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer Section -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="/images/flogo.png" alt="ZUHD Logo">
+                </div>
+                <p class="footer-text">Be the first to receive all the recent updates, articles, and valuable deals from ZUHD EXCLUSIVELY.</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Email address">
+                    <button>Subscribe</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.twitter.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkdin.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>ABOUT ACADEMY</h3>
+                <div class="footer-links">
+                    <a href="/story.html">About ZUHD</a>
+                  <a href="/delivery-info-page.html">Delivery</a>
+                  <a href="/tandc.html">Terms and conditions</a>
+                  <a href="/return-policy.html">Return Policy</a>
+                    <a href="#">ZUHD Community</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>EXCLUSIVE SERVICES</h3>
+                <div class="footer-links">
+                    <a href="#">Create Your Style</a>
+                    <a href="#">Request a Stylist</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>CONTACT US</h3>
+                <div class="contact-info">
+                    <p>Call: <a href="tel:+61291000100">+61 291000100</a></p>
+                    <p>Email: <a href="mailto:info@zuhd.store">info@zuhd.store</a></p>
+                </div>
+                
+                <div class="preferences">
+                    <h3>PREFERENCES</h3>
+                    <select class="preference-select">
+                        <option>English</option>
+                        <option>Arabic</option>
+                        <option>Urdu</option>
+                    </select>
+                    <select class="preference-select">
+                        <option>Pakistani Rupee(PKR)</option>
+                        <option>US Dollar(USD)</option>
+                        <option>Euro(EUR)</option>
+                        <option>Australian Dollar(AUD)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <img src="/images/Item (1).svg" alt="American Express">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (2).svg" alt="Apple Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (3).svg" alt="Google Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (4).svg" alt="Mastercard">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (5).svg" alt="PayPal">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (6).svg" alt="Shop Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (1).svg" alt="Union Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (1).svg" alt="Visa">
+                </div>
+            </div>
+            <p>© 2025 ZUHD Academy. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('reminders-carousel');
+            const dots = document.querySelectorAll('.reminders-carousel-dot');
+            let currentIndex = 0;
+            const totalItems = document.querySelectorAll('.reminders-carousel-item').length;
+            
+            // Calculate max index based on screen size
+            function getMaxIndex() {
+                if (window.innerWidth <= 480) {
+                    return totalItems - 1; // Show 1 card at a time on mobile
+                } else if (window.innerWidth <= 768) {
+                    return totalItems - 2; // Show 2 cards at a time on tablets
+                } else if (window.innerWidth <= 1024) {
+                    return totalItems - 3; // Show 3 cards at a time on small desktops
+                } else {
+                    return totalItems - 4; // Show 4 cards at a time on large screens
+                }
+            }
+            
+            let maxIndex = getMaxIndex();
+            
+            function updateCarousel() {
+                // Determine how many items to show based on screen width
+                let itemsToShow = 4; // Default for desktop
+                
+                if (window.innerWidth <= 480) {
+                    itemsToShow = 1; // Mobile
+                } else if (window.innerWidth <= 768) {
+                    itemsToShow = 2; // Tablet
+                } else if (window.innerWidth <= 1024) {
+                    itemsToShow = 3; // Small desktop
+                }
+                
+                // Calculate the percentage to move
+                const movePercentage = 100 / itemsToShow;
+                const translateX = -(currentIndex * movePercentage);
+                carousel.style.transform = `translateX(${translateX}%)`;
+                
+                // Update active dot
+                const activeDotIndex = Math.min(Math.floor(currentIndex / Math.ceil(totalItems / 3)), dots.length - 1);
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('reminders-carousel-dot-active', index === activeDotIndex);
+                });
+            }
+            
+            // Add click event to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    // Each dot represents a group of items
+                    const itemsPerDot = Math.ceil(totalItems / dots.length);
+                    currentIndex = index * itemsPerDot;
+                    
+                    // Ensure we don't go beyond the max index
+                    if (currentIndex > maxIndex) currentIndex = maxIndex;
+                    updateCarousel();
+                });
+            });
+            
+            // Auto-rotate carousel
+            const carouselInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % (maxIndex + 1);
+                updateCarousel();
+            }, 4000);
+            
+            // Update carousel and maxIndex on window resize
+            window.addEventListener('resize', () => {
+                maxIndex = getMaxIndex();
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                updateCarousel();
+            });
+            
+            // Initialize carousel
+            updateCarousel();
+        });
+    </script>
+    <script src="navbar.js"></script>
+</body>
+</html>

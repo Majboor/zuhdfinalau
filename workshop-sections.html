@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Workshops</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans';
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        /* Header Banner Section */
+        .banner {
+            position: relative;
+            width: 100%;
+            height:100vh;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            font-size: 75px;
+            font-weight:700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            width: 100%;
+        }
+        
+        /* Workshops Grid Section */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 80px 40px;
+        }
+        
+        .workshops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 20px;
+        }
+        
+        .workshop-card {
+            padding:10px;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            border:#C3922E 1px solid;
+            flex-direction: column;
+        }
+        
+        .workshop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .workshop-img-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .workshop-img {
+            width: 100%;
+            height: 100%;
+            border-radius:10px;
+            object-fit: cover;
+        }
+        
+        .workshop-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .workshop-overlay h3 {
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width:80%;
+    font-weight: 900;
+}
+     .workshop-overlay p{
+        font-size: 30px;
+
+     }   
+        .workshop-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .workshop-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size:24px;
+        }
+        .workshop-title span {
+            font-size: 20px;
+    font-weight: 300; /* Light font */
+    opacity: 0.8; /* Optional: Slight transparency for a softer look */
+    font-style: italic; /* Optional: Add italics for more distinction */
+}
+        .workshop-description {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .read-more {
+            background-color: #C3922E;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            align-self: flex-start;
+            transition: background-color 0.3s ease;
+        }
+        
+        .read-more:hover {
+            background-color: #C3922E;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding:0;
+                width:100%;
+            }
+            .workshop-overlay h3{
+                font-size:20px;
+                width:220px;
+
+            }
+            .workshop-overlay p{
+        font-size: 20px;
+
+     } 
+            .workshop-card{
+                width: 100%;
+                margin:0;
+            }
+            .workshop-img {
+            width: 100%;
+            height: 100%;
+            border-radius:10px;
+            object-fit: cover;
+            padding:0;
+        }
+            .workshops-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .banner {
+                height: 200px;
+            }
+            
+            .banner-text {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .workshops-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .banner {
+                height: 150px;
+            }
+            
+            .banner-text {
+                font-size: 24px;
+            }
+        }
+
+
+        
+        /* footer */
+        .footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    padding:20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap:60px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 80px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 300px;
+}
+
+.newsletter {
+    display: flex;
+    margin-bottom: 20px;
+    gap:10px;
+}
+
+.newsletter input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius:20px;
+    font-size: 14px;
+}
+
+.newsletter button {
+    background-color: #c99c31;
+    color: #fff;
+    border: none;
+    padding: 6px 15px;
+    border-radius:20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.social-icon:hover {
+    background-color: #c99c31;
+}
+
+.footer-column h3 {
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: bold;
+
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding-left: 10px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ca9836;
+}
+
+.hiring-tag {
+    background-color: #ca9836;
+    color: #000;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.contact-info a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #ca9836;
+}
+
+.preferences h3 {
+    margin-top: 20px;
+}
+
+.preference-select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: #333;
+    margin: 30px 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.payment-method img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.footer-bottom p {
+    font-size: 12px;
+    color: #999;
+}
+
+@media (max-width: 768px) {
+    .title1{
+        font-size:30px;
+        padding:30px 0px;
+    }
+    .title1 span{
+        font-size:30px;
+        padding:10px 0px;
+    }
+    .heading-highlight{
+        font-size: 30px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap:0px;
+    }
+    
+    .footer-column {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .footer-links{
+        text-align: start;
+    }
+    .footer-column h3 {
+        text-align: start;
+    }
+    .footer-links a{
+        padding:0px;
+    }
+    .footer-bottom{
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="navbar"></div>
+    </nav>
+    <!-- Banner Section -->
+    <div class="banner">
+        <img src="/Our Workshops Banner 2.png" alt="Islamic Workshop Banner" class="banner-img">
+        <div class="banner-text">OUR WORKSHOPS</div>
+    </div>
+    
+    <!-- Workshops Grid Section -->
+    <div class="container">
+        <div class="workshops-grid">
+            <!-- Workshop 1 -->
+            <div class="workshop-card">
+                <div class="workshop-img-container">
+                    <img src="/Banners-01.png" alt="Raising Muslim Children" class="workshop-img">
+                    <div class="workshop-overlay">
+                        <h3 class="workshop-title">Raising Muslim Children</h3>
+                    </div>
+                </div>
+                <div class="workshop-content">
+                    <h3 class="workshop-title">Raising Muslim Children</h3>
+                    <p class="workshop-description">
+                        Learn the comprehensive approach "Raising Muslim Children" led by the respected Mufti Menk.
+                    </p>
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+            
+            <!-- Workshop 2 -->
+            <div class="workshop-card">
+                <div class="workshop-img-container">
+                    <img src="/Banners-02.png" alt="Pre-Ramadan Workshop" class="workshop-img">
+                    <div class="workshop-overlay">
+                        <h3 class="workshop-title">Pre-Ramadan Workshop</h3>
+                    </div>
+                </div>
+                <div class="workshop-content">
+                    <h4 class="workshop-title">Pre-Ramadan Workshop</h4>
+                    <p class="workshop-description">Prepare for the upcoming Pre-Ramadan Workshop that took place on 8th March 2022 at the venue.</p>
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+            
+            <!-- Workshop 3 -->
+            <div class="workshop-card">
+                <div class="workshop-img-container">
+                    <img src="/Banners-03.png" alt="Maulana Sulaiman Khatani Australia Tour" class="workshop-img">
+                    <div class="workshop-overlay">
+                        <h3 class="workshop-title">Maulana Sulaiman Khatani</h3>
+                        <p>Australia Tour</p>
+
+                    </div>
+
+                </div>
+                <div class="workshop-content">
+                    <h4 class="workshop-title">Maulana Sulaiman Khatani Australia Tour</h4>
+                    <p class="workshop-description">Benefit from the inspiring visit of esteemed Maulana Sulaiman Khatani to Australia.</p>
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+            
+            <!-- Workshop 4 -->
+            <div class="workshop-card">
+                <div class="workshop-img-container">
+                    <img src="/Banners-05.png" alt="Shaykh Hassan Ali Australia Tour" class="workshop-img">
+                    <div class="workshop-overlay">
+                        <h3 class="workshop-title">Shaykh Hassan Ali</h3>
+                        <p>Australia Tour</p>
+
+                    </div>
+                </div>
+                <div class="workshop-content">
+                    <h4 class="workshop-title">Shaykh Hassan Ali Australia Tour</h4>
+                    <p class="workshop-description">Be a part of the much-awaited visit of the distinguished Islamic scholar, Shaykh Hassan Ali.</p>
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+            <!-- Workshop 5 -->
+            <div class="workshop-card">
+                <div class="workshop-img-container">
+                    <img src="/Banners-04.png" alt="Mufti Abdur Rahman Mangera Australia Tour" class="workshop-img">
+                    <div class="workshop-overlay">
+                        <h3 class="workshop-title">Mufti Abdur Rahman Mangera</h3>
+                        <p>Australia Tour</p>
+
+                    </div>
+                </div>
+                <div class="workshop-content">
+                    <h4 class="workshop-title">Mufti Abdur Rahman Mangera Australia Tour</h4>
+                    <p class="workshop-description">Don't miss the unique experience visit of respected Mufti Abdur Rahman.</p>
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="/images/flogo.png" alt="ZUHD Logo">
+                </div>
+                <p class="footer-text">Be the first to receive all the recent updates, articles, and valuable deals from ZUHD EXCLUSIVELY.</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Email address">
+                    <button>Subscribe</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.twitter.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkdin.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/zuhd.au" class="social-icon">
+                      <i class="fab fa-tiktok"></i>
+                  </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>ABOUT ACADEMY</h3>
+                <div class="footer-links">
+                    <a href="/story.html">About ZUHD</a>
+                    <a href="/delivery-info-page.html">Delivery</a>
+                    <a href="/tandc.html">Terms and conditions</a>
+                    <a href="/return-policy.html">Return Policy</a>
+                    <a href="#">ZUHD Community</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>EXCLUSIVE SERVICES</h3>
+                <div class="footer-links">
+                    <a href="#">Create Your Style</a>
+                    <a href="#">Request a Stylist</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>CONTACT US</h3>
+                <div class="contact-info">
+                    <p>Call: <a href="tel:+61291000100">+61 291000100</a></p>
+                    <p>Email: <a href="mailto:info@zuhd.store">info@zuhd.store</a></p>
+                </div>
+                
+                <div class="preferences">
+                    <h3>PREFERENCES</h3>
+                    <select class="preference-select">
+                        <option>English</option>
+                        <option>Arabic</option>
+                        <option>Urdu</option>
+                    </select>
+                    <select class="preference-select">
+                        <option>Pakistani Rupee(PKR)</option>
+                        <option>US Dollar(USD)</option>
+                        <option>Euro(EUR)</option>
+                        <option>Australian Dollar(AUD)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <img src="/images/Item (1).svg" alt="American Express">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (2).svg" alt="Apple Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (3).svg" alt="Google Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (4).svg" alt="Mastercard">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (5).svg" alt="PayPal">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (6).svg" alt="Shop Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (1).svg" alt="Union Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (1).svg" alt="Visa">
+                </div>
+            </div>
+            <p>© 2025 ZUHD Academy. All rights reserved.</p>
+        </div>
+    </div>
+    <script>
+        // Simple script to handle the "Read More" button clicks
+        document.addEventListener('DOMContentLoaded', function() {
+            const readMoreButtons = document.querySelectorAll('.read-more');
+            
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const workshopTitle = this.closest('.workshop-content').querySelector('.workshop-title').textContent;
+                    alert(`You clicked to read more about "${workshopTitle}". This would navigate to the detailed page.`);
+                });
+            });
+            
+            // Add hover effect to cards for better interaction
+            const workshopCards = document.querySelectorAll('.workshop-card');
+            
+            workshopCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+                });
+            });
+        });
+    </script>
+        <script src="navbar.js"></script>
+
+</body>
+</html>

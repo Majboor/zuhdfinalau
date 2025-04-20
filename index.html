@@ -143,8 +143,20 @@
             padding: 20px;
             background-color: #fff;
         }
+        .slide-text {
+        position: absolute;
+        display: flex;
+        top: 20%;
+        left: 20%;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
         
-        /* Animations */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -229,12 +241,12 @@
     }
     
     .section-heading {
-      font-size: 32px;
+      font-size:45px;
       margin-bottom: 30px;
-      color: #333;
+      color: #0e0c0c;
     }
     
-   
+
     
     /* Slider container */
     .reminders-video {
@@ -283,7 +295,12 @@
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    
+    .time { 
+        font-size: small !important;
+      }
+      .iconnn{
+        font-size: small;
+      }
     /* Responsive adjustments */
     @media (max-width: 992px) {
       .slider-item {
@@ -292,144 +309,392 @@
     }
     
     @media (max-width: 768px) {
+
+      .iconnn{
+        font-size: small !important;
+        margin-top: 3px;
+      }
+      .time { 
+        font-size: small !important;
+      }
+      .js-sequential-slide-cta  ,.cta-button {
+  margin-top: 0px !important;
+}
+      
+      .location {
+        align-items: start !important;
+
+        margin-bottom: 4px !important;
+      }
+      .event-time {
+    display : flex;
+    margin-bottom: 0px !important;
+
+}
+
+.location{
+  display:flex;
+  align-items: c;
+}
+      .js-sequential-slide-content h2 {
+        margin-bottom:  3px !important;
+        width:45vw !important;
+
+        font-size: 1.5rem !important;
+    }
+    .js-sequential-slide:nth-child(2) .js-sequential-slide-content h2 {
+    width: 100% !important;
+}
+
+     
+      .slide-text {
+            font-size: 18px;
+            padding: 8px 16px;
+        }
       .slider-item {
         min-width: calc(100% - 20px);
       }
       .section-heading{
-        font-size:30px;
+        font-size:35px;
+      }
+      .highlight-text{
+        font-size:1rem;
       }
     }
 
+    .hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-
-      .swift-panorama {
+        .hero-slider__container {
             position: relative;
             width: 100%;
-            height: 100vh;
+            height:100vh;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
-        .swift-panorama__slider {
-            position: absolute;
-            width: 400%; /* 4 images * 100% */
+
+        .hero-slider__wrapper {
+            width: 100%;
             height: 100%;
-            display: flex;
-            transition: transform 1s ease-in-out;
+            position: relative;
         }
-        
-        .swift-panorama__slide {
-            width: 25%; /* 100% / 4 images */
+
+        .hero-slider__slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-slider__slide.active {
+            opacity: 1;
+        }
+
+        .hero-slider__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
             background-size: cover;
             background-position: center;
+            z-index: 1;
         }
-        
-        .swift-panorama__slide:nth-child(1) {
-            background-image: url('/Banner/Desktop/01\ .png');
+
+        .hero-slider__background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
         }
-        
-        .swift-panorama__slide:nth-child(2) {
-            background-image: url('/Banner/Desktop/03.png');
+
+        .hero-slider__content {
+            position: relative;
+            z-index: 3;
+            color: white;
+            padding: 0 10%;
+            max-width: 750px;
         }
-        
-        .swift-panorama__slide:nth-child(3) {
-            background-image: url('/Banner/Desktop/04.png');
+
+        .hero-slider__title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
         }
-        
-        .swift-panorama__slide:nth-child(4) {
-            background-image: url('/Banner/Desktop/05.png');
+
+        .hero-slider__details {
+            margin-bottom: 2rem;
         }
-        /* Default styles for larger screens */
-.swift-panorama__slide {
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+
+        .hero-slider__time {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-slider__highlight {
+            color: #d4af37;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .hero-slider__clock {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .hero-slider__location {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            max-width: 500px;
+            line-height: 1.4;
+        }
+
+        .hero-slider__location i {
+            margin-top: 0.2rem;
+        }
+
+        .hero-slider__button {
+            background-color: #d4af37;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-slider__button:hover {
+            background-color: #c19b26;
+        }
+
+        .hero-slider__nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-slider__nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .hero-slider__prev {
+            left: 20px;
+        }
+
+        .hero-slider__next {
+            right: 20px;
+        }
+
+        .hero-slider__dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .hero-slider__dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-slider__dot.active {
+            background-color: white;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .hero-slider__title {
+                font-size: 3rem;
+            }
+            
+            .hero-slider__time {
+                font-size: 1.3rem;
+            }
+            
+            .hero-slider__location {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-slider__container {
+                height: 500px;
+            }
+            
+            .hero-slider__title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-slider__content {
+                padding: 0 8%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-slider__container {
+                height:100vh;
+            }
+            
+            .hero-slider__title {
+                font-size: 2.8rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-slider__time {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .hero-slider__location {
+                font-size: 0.9rem;
+            }
+            
+            .hero-slider__button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            
+            .hero-slider__nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 768px) {
+    .hero-slider__slide:nth-child(1) .hero-slider__background {
+        background-image: url('/Banner/Desktop/mob1.png') !important;
+    }
+
+    .hero-slider__slide:nth-child(2) .hero-slider__background {
+        background-image: url('/Banner/Desktop/mob2.png') !important;
+    }
+
+    .hero-slider__slide:nth-child(3) .hero-slider__background {
+        background-image: url('/Banner/Desktop/Banners_07.png') !important;
+    }
 }
-
-/* Medium Mobile Screens (Tablets & Large Phones) */
-@media screen and (max-width: 768px) {
-  .swift-panorama__slide:nth-child(1) {
-        background-image: url('/Banner/Mobile/bannerzhd.jpg');
-    }
-
-    .swift-panorama__slide:nth-child(2) {
-        background-image: url('/Banner/Mobile/zuhd2.jpg');
-    }
-
-    .swift-panorama__slide:nth-child(3) {
-        background-image: url('/Banner/Mobile/zuhd3.jpg'); /* Rename file to remove spaces */
-    }
-
-    .swift-panorama__slide:nth-child(4) {
-        background-image: url('/Banner/Mobile/zuhd4.jpg');
-    }
-
-    .swift-panorama__slide:nth-child(5) {
-        background-image: url('/Banner/Mobile/zuhd5.jpg');
-    }
-    .swift-panorama__slide:nth-child(6) {
-        background-image: url('/Banner/Mobile/zuhd6.jpg');
-    }
-   
-
-    .swift-panorama {
-        height: 90vh; /* Reduce height slightly for better fit */
-    }
-}
-
-/* Small Mobile Screens (iPhones, Smaller Androids) */
-@media screen and (max-width: 576px) {
-    .swift-panorama {
-        height: 80vh;
-    }
-
-    .swift-panorama__slide {
-        background-size: 100% auto;
-    }
-}
-
-/* Very Small Screens (Compact Phones) */
-@media screen and (max-width: 480px) {
-    .swift-panorama {
-        height: 75vh; /* Adjust height further */
-    }
-
-    .swift-panorama__slide {
-        background-size: 100% 100%; /* Ensures full fit */
-    }
-}
-
-   </style>
+</style>
   </head>
   <body>
-    <div id="loader-wrapper">
-      <div class="loader-container">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="loader">
-              <div class="letter">Z</div>
-              <div class="letter">U</div>
-              <div class="letter">H</div>
-              <div class="letter">D</div>
-          </div>
-          <div class="progress-bar">
-              <div class="progress"></div>
-              <div class="glow"></div>
-          </div>
-          <div class="loading-message">Loading Islamic knowledge and wisdom...</div>
-      </div>
-  </div>
     <nav>
       <div id="navbar"></div>
    </nav>
-   <div class="swift-panorama">
-        <div class="swift-panorama__slider">
-            <div class="swift-panorama__slide"></div>
-            <div class="swift-panorama__slide"></div>
-            <div class="swift-panorama__slide"></div>
-            <div class="swift-panorama__slide"></div>
+   <section class="hero-section">
+    <div class="hero-slider__container">
+        <div class="hero-slider__wrapper">
+            <!-- Slide 1 -->
+            <div class="hero-slider__slide active">
+                <div class="hero-slider__background" style="background-image: url('/Banner/Desktop/hero.png');"></div>
+                <div class="hero-slider__content">
+                    <h1 class="hero-slider__title">The Seerah Series</h1>
+                    <div class="hero-slider__details">
+                        <div class="hero-slider__time">
+                            <span>Every</span>
+                            <span class="hero-slider__highlight">Friday</span>
+                            <span class="hero-slider__clock"><i class="fas fa-clock"></i> 2:15 PM</span>
+                        </div>
+                        <div class="hero-slider__location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Wyndham Library Service Point, Cook Branch 1-21 Cheetham ST, Point Cook VIC 3029</span>
+                        </div>
+                    </div>
+                    <button class="hero-slider__button">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slider__slide">
+                <div class="hero-slider__background" style="background-image: url('/Banner/Desktop/Banners_03.png');"></div>
+                <div class="hero-slider__content">
+                    <h1 class="hero-slider__title">Learn to Resite the Quran Correctly </h1>
+                    <div class="hero-slider__details">
+                        <div class="hero-slider__time">
+                            
+                        </div>
+                        <div class="hero-slider__location">
+                            <span>Take your Among the Best!</span>
+                        </div>
+                    </div>
+                    <button class="hero-slider__button">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slider__slide">
+                <div class="hero-slider__background" style="background-image: url('/Banner/Desktop/Banners_04.png');"></div>
+                <div class="hero-slider__content">
+                    <h1 class="hero-slider__title">Embark On A Journey To Learn</h1>
+                    <div class="hero-slider__details">
+                        <div class="hero-slider__time">
+                          
+                        </div>
+                        <div class="hero-slider__location">
+                            <span></span>
+                        </div>
+                    </div>
+                    <button class="hero-slider__button">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="hero-slider__nav-btn hero-slider__prev" aria-label="Previous slide">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="hero-slider__nav-btn hero-slider__next" aria-label="Next slide">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Dots Navigation -->
+        <div class="hero-slider__dots">
+            <span class="hero-slider__dot active" data-index="0"></span>
+            <span class="hero-slider__dot" data-index="1"></span>
+            <span class="hero-slider__dot" data-index="2"></span>
         </div>
     </div>
+</section>
+
 <div class="about">
       <div class="container">
         <div class="left-section">
@@ -475,7 +740,6 @@
         <h2 class="title1">Our <span>Partners</span> </h2>
         <div class="carousel-container">
           <div class="partner-container" id="partnerContainer">
-            <!-- Original logos -->
             <div class="partner-card">
               <img src="/images/card1.svg" alt="Zamzam Academy">
             </div>
@@ -488,7 +752,6 @@
             <div class="partner-card">
               <img src="/images/card1.svg" alt="Partner 4">
             </div>
-            <!-- Duplicated logos for seamless scroll -->
             <div class="partner-card">
               <img src="/images/card2.svg" alt="Zamzam Academy">
             </div>
@@ -591,10 +854,10 @@
           <div class="footer-column">
               <h3>ABOUT ACADEMY</h3>
               <div class="footer-links">
-                  <a href="/about/about.html">About ZUHD</a>
-                  <a href="/delivery/delivery-info-page.html">Delivery</a>
-                  <a href="/tands/tandc.html">Terms and conditions</a>
-                  <a href="/privcypage/return-policy.html">Return Policy</a>
+                  <a href="/story.html">About ZUHD</a>
+                  <a href="/delivery-info-page.html">Delivery</a>
+                  <a href="/tandc.html">Terms and conditions</a>
+                  <a href="/return-policy.html">Return Policy</a>
                   <a href="#">ZUHD Community</a>
               </div>
           </div>
@@ -1031,7 +1294,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
 
-          // Wait for all resources to load
           window.addEventListener('load', function() {
             // Simulate a minimum loading time (you can adjust this)
             setTimeout(function() {
@@ -1138,18 +1400,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('DOMContentLoaded', function() {
             const slider = document.querySelector('.swift-panorama__slider');
+            const slides = document.querySelectorAll('.swift-panorama__slide');
+            const slideContents = document.querySelectorAll('.slide-content');
             let currentSlide = 0;
-            const totalSlides = document.querySelectorAll('.swift-panorama__slide').length;
+            const totalSlides = slides.length;
+            
+            // Initial animation
+            slideContents[0].classList.add('active');
             
             function moveSlider() {
                 currentSlide = (currentSlide + 1) % totalSlides;
                 slider.style.transform = `translateX(-${currentSlide * 25}%)`;
+                
+                // Remove active class from all slide contents
+                slideContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to current slide content with a slight delay
+                setTimeout(() => {
+                    slideContents[currentSlide].classList.add('active');
+                }, 300);
             }
             
             // Move slider every 5 seconds
-            setInterval(moveSlider, 5000);
+            const sliderInterval = setInterval(moveSlider, 5000);
             
-            // Add touch swipe capability for mobile
+            // Touch swipe capability for mobile
             let touchStartX = 0;
             let touchEndX = 0;
             
@@ -1171,10 +1446,164 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Swipe right - go to previous slide
                     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
                     slider.style.transform = `translateX(-${currentSlide * 25}%)`;
+                    
+                    // Remove active class from all slide contents
+                    slideContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to current slide content with a slight delay
+                    setTimeout(() => {
+                        slideContents[currentSlide].classList.add('active');
+                    }, 300);
                 }
             }
         });
-    </script>
+
+
+      
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slider__slide');
+            const dots = document.querySelectorAll('.hero-slider__dot');
+            const prevBtn = document.querySelector('.hero-slider__prev');
+            const nextBtn = document.querySelector('.hero-slider__next');
+            
+            let currentSlide = 0;
+            let slideInterval;
+            const intervalTime = 5000; // Auto slide every 5 seconds
+            
+            // Initialize the slider
+            function initSlider() {
+                // Set the first slide as active
+                slides[0].classList.add('active');
+                dots[0].classList.add('active');
+                
+                // Start auto sliding
+                startSlideInterval();
+            }
+            
+            // Function to start auto sliding
+            function startSlideInterval() {
+                slideInterval = setInterval(() => {
+                    nextSlide();
+                }, intervalTime);
+            }
+            
+            // Function to reset the interval
+            function resetInterval() {
+                clearInterval(slideInterval);
+                startSlideInterval();
+            }
+            
+            // Function to show a specific slide
+            function showSlide(n) {
+                // Remove active class from all slides and dots
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Add active class to the current slide and dot
+                slides[n].classList.add('active');
+                dots[n].classList.add('active');
+                
+                // Update current slide index
+                currentSlide = n;
+            }
+            
+            // Function to show the next slide
+            function nextSlide() {
+                let next = currentSlide + 1;
+                if (next >= slides.length) {
+                    next = 0;
+                }
+                showSlide(next);
+            }
+            
+            // Function to show the previous slide
+            function prevSlide() {
+                let prev = currentSlide - 1;
+                if (prev < 0) {
+                    prev = slides.length - 1;
+                }
+                showSlide(prev);
+            }
+            
+            // Event listeners for navigation
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetInterval();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetInterval();
+            });
+            
+            // Event listeners for dot navigation
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-index'));
+                    showSlide(slideIndex);
+                    resetInterval();
+                });
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                    resetInterval();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                    resetInterval();
+                }
+            });
+            
+            // Pause auto sliding when hovering over the slider
+            const sliderContainer = document.querySelector('.hero-slider__container');
+            
+            sliderContainer.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            sliderContainer.addEventListener('mouseleave', () => {
+                startSlideInterval();
+            });
+            
+            // Touch events for mobile swipe
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            sliderContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            sliderContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                // Minimum swipe distance (in pixels)
+                const swipeThreshold = 50;
+                
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Swipe left, show next slide
+                    nextSlide();
+                    resetInterval();
+                } else if (touchEndX > touchStartX + swipeThreshold) {
+                    // Swipe right, show previous slide
+                    prevSlide();
+                    resetInterval();
+                }
+            }
+            
+            // Initialize the slider
+            initSlider();
+        });
+   </script>
    <script src="https://static.elfsight.com/platform/platform.js" async></script>
      <script src="navbar.js"></script>
 

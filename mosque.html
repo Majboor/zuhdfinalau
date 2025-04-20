@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosque Construction Donation</title>
+    <style>
+     @import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans';
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        /* Banner Styles */
+        .banner {
+    background-image: url(./masjid12-1.png);
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height:100vh;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+/* Overlay */
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+/* Banner Text */
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 75px;
+    font-weight:700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    padding: 0 15px;
+    z-index: 2; /* Above the overlay */
+}
+    
+
+        
+          /* footer */
+          .footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    padding:20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap:60px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 80px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 300px;
+}
+
+.newsletter {
+    display: flex;
+    margin-bottom: 20px;
+    gap:10px;
+}
+
+.newsletter input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius:20px;
+    font-size: 14px;
+}
+
+.newsletter button {
+    background-color: #c99c31;
+    color: #fff;
+    border: none;
+    padding: 6px 15px;
+    border-radius:20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.social-icon:hover {
+    background-color: #c99c31;
+}
+
+.footer-column h3 {
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: bold;
+
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding-left: 10px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ca9836;
+}
+
+.hiring-tag {
+    background-color: #ca9836;
+    color: #000;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.contact-info a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #ca9836;
+}
+
+.preferences h3 {
+    margin-top: 20px;
+}
+
+.preference-select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: #333;
+    margin: 30px 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.payment-method img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.footer-bottom p {
+    font-size: 12px;
+    color: #999;
+}
+
+@media (max-width: 768px) {
+    .title1{
+        font-size:30px;
+        padding:30px 0px;
+    }
+    .title1 span{
+        font-size:30px;
+        padding:10px 0px;
+    }
+    .heading-highlight{
+        font-size: 30px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap:0px;
+    }
+    
+    .footer-column {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .footer-links{
+        text-align: start;
+    }
+    .footer-column h3 {
+        text-align: start;
+    }
+    .footer-links a{
+        padding:0px;
+    }
+    .footer-bottom{
+        flex-direction: column;
+    }
+
+}
+
+.slider-container {
+            width:80%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            flex: 0 0 25%;
+            max-width: 25%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top:10px;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+
+      .hadith-card {
+    background-color: #C3922E;
+    border-radius: 15px;
+    padding: 25px;
+    width: 80%;/* Ensures it doesn’t stretch too much on larger screens */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    margin: auto; 
+    margin-bottom:30px;/* Centers the card */
+
+}
+
+
+.hadith-quote p {
+    color: white;
+    font-size:22px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-weight:300;
+}
+.hadith-quote p span{
+    font-size:22px;
+        font-weight:500;
+
+
+}
+.hadith-source {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    font-style: italic;
+}
+
+.quote-mark {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 60px;
+    font-weight: bold;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .hadith-card {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .quote-mark {
+        font-size: 50px;
+        top: 5px;
+        left: 10px;
+    }
+
+    .hadith-quote {
+        font-size: 16px;
+    }
+}
+
+.donation-container {
+            width:80%;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .donation-description {
+            padding: 0px 30px;
+        }
+
+        .donation-description-text {
+            color: #333;
+            line-height:1.6;
+            text-align: justify;
+            font-weight:300;
+            font-size:22px;
+            font-family:'Plus Jakarta Sans';
+        }
+
+        .donation-form {
+            background-color: #D4A339;
+            padding: 20px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius:10px;
+        }
+
+        .donation-form-title {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .donation-form-subtitle {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .donation-input-container {
+            width: 100%;
+            background-color: white;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .donation-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .donation-button {
+            width: 100%;
+            background-color: white;
+            color: #D4A339;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .donation-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Mobile Responsive Design */
+        @media screen and (max-width: 768px) {
+            .donation-container {
+                width: 100%;
+        grid-template-columns: 1fr;
+        display: flex
+;
+        flex-direction: column-reverse;
+    }
+            .donation-description,
+            .donation-form {
+                padding: 20px;
+            }
+               .info-description-overlay {
+        width: 100%;
+        padding:10px;
+    }
+    .info-summary-text {
+        font-size: 18px;
+    }
+    .banner {
+        background-image: url(./masjid12-1.png);
+        background-size: cover;
+    background-position: revert;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    height:50vh;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+  .banner-text{
+    font-size:30px;
+  }
+  .project-donation-container {
+    position: relative;
+    width:100%;
+    background-image: url(./s3.png)!important;
+    height:100vh !important;
+    background-position:center!important;
+    display: flex;
+    background-size:none;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+}  
+        }
+
+        /* Small Mobile Devices */
+        @media screen and (max-width: 480px) {
+            .donation-container {
+                margin: 0 10px;
+            }
+
+            .donation-description-text {
+                font-size: 16px;
+            }
+
+            
+        }
+
+.main{
+    display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height:50vh;
+            background-color: #f4f4f4;
+            padding: 20px ;
+
+
+}
+.main-content{
+    display: flex;
+}
+.zuhd-donation-container {
+            display: flex;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width:80%;
+            margin:auto;
+            margin-top:60px;
+            margin-bottom:60px;
+            border: #c99c31 1px solid;
+            text-align: center;
+        }
+        .zuhd-qr-code {
+            max-width: 200px;
+            margin-bottom: 15px;
+        }
+        .zuhd-donation-text {
+             color: #333;
+            line-height:1.5;
+            font-weight:300;
+            font-size:22px;
+            font-family:'Plus Jakarta Sans';
+            padding:40px 0px;
+            text-align: start;
+        }
+
+        .zuhd-donate-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+     .project-donation-container {
+            position: relative;
+            width:80%;
+            margin: auto;
+            height: 100vh;
+            background-image: url('/mosquw2.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            margin-bottom: 60px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .project-donation-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #C3922E;
+            padding: 20px;
+            border-radius:10px;
+            text-align: center;
+        }
+        .project-donation-text {
+            color: white;
+            font-size: 22px;
+            font-weight: 300;
+            margin: 0 auto;
+            line-height: 1.5;
+            padding:20px;
+        }
+        .project-donate-link {
+            color: white;
+            text-decoration: underline;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .project-donate-link:hover {
+            color: #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            .project-donation-text {
+                font-size: 16px;
+                padding: 0 15px;
+            }
+            .project-donation-overlay {
+                padding: 15px 10px;
+         
+            }
+            .main-content{
+                flex-direction: column;
+                align-items: center;
+               
+            }
+            .zuhd-donation-text{
+                 font-size:16px;
+                 font-weight: 300;
+            }
+        }
+
+        .info-description-container {
+            position: relative;
+            width: 100%;
+            height:100vh;
+            background-image: url('/masjid06\ Edit\ 2.png');
+            background-size:top !important;
+            background-position: center;
+            display: flex;
+            }
+        .info-description-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width:100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            text-align: center;
+            height:100vh;
+        }
+       .info-description-text {
+    color: white;
+    font-size: 24px;
+    padding: 40px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+        @media (max-width: 768px) {
+            .hadith-quote p {
+    color: white;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+            
+ .info-description-text {
+        font-size: 16px;
+        line-height:28px;
+        padding: 10px;
+        padding-bottom: 40px;
+    }
+
+        .zuhd-donation-container{
+            display: flex;
+            flex-direction: column;
+        }
+           .info-description-container {
+            position: relative;
+            width: 100%;
+            height:100vh;
+            background-image: url('/masjid06\ Edit\ 2.png');
+            background-size:top !important;
+            background-position: center;
+            display: flex;
+            }
+        .info-description-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width:100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            text-align: center;
+            height:100vh;
+        }
+       
+        }
+
+        @media (max-width: 480px) {
+             
+         
+        }
+
+          .info-summary-container {
+            margin-top: 60px;
+            background-color: white;
+            width:100%;
+            margin: auto;
+            padding:80px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .info-summary-text {
+            color: #333;
+            font-size:20px;
+            font-weight:300;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .info-summary-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .info-summary-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    
+
+        @media (max-width: 768px) {
+           
+           
+            
+        }
+    </style>
+  </style>
+</head>
+<body>
+
+    <nav>
+        <div id="navbar"></div>
+    </nav>
+    <div class="banner">
+        <div class="banner-text">MASJID PROJECT</div>
+    </div>
+<div class="main">
+    <div class="donation-container">
+        <div class="donation-description">
+            <p class="donation-description-text">
+                The construction of a new mosque, Islamic school, Darul Ifta, and other facilities in Point Cook, Melbourne, Australia, is an exciting development for the Muslim community in Australia. This project will provide a much-needed space for Muslims to come together, worship, and learn about Islam in a supportive and welcoming environment. It will be the first project of its kind to make an entire Islamic Village with all facilities included in it taking inspiration from Darul Uloom Kaurangi of Mufti Taqi Usmani in Karachi, Pakistan.
+            </p>
+        </div>
+        <div class="donation-form">
+            <p class="donation-form-title">Amount (In Multiples Of 10):</p>
+            <p class="donation-form-subtitle">Example: 10, 20, 30</p>
+            <div class="donation-input-container">
+                <input 
+                    type="number" 
+                    class="donation-input" 
+                    id="donationAmount" 
+                    placeholder="Enter Amount"
+                >
+            </div>
+            <button 
+                class="donation-button" 
+                onclick="validateDonation()"
+            >
+                Donate
+            </button>
+        </div>
+    </div>
+</div>
+<div class="zuhd-donation-container">
+    <div class="main-content">
+            <img id="zuhdQrCode" src="./payment-qrcode 1.png" alt="QR Code for Donations" class="zuhd-qr-code">
+
+    <div class="zuhd-donation-text">
+        Donations can be made through scanning the QR code on your left or by using this link. You can open the link, enter any amount, and simply <a href="#" class="zuhd-donate-link" id="zuhdDonateLink">donate here</a>, or by contacting the project's fundraising team directly. Contact: info@zuhd.au
+    </div>
+</div>
+</div>
+ <div class="project-donation-container">
+        <div class="project-donation-overlay">
+            <p class="project-donation-text">
+                Donations are a critical component of this project's success, as the construction and operation of these facilities requires significant funding. Individuals and organisations can contribute to this project by making financial donations, providing in-kind donations, or volunteering their time and expertise. <a href="#" class="project-donate-link" id="projectDonateLink">Do All Donations here</a>
+            </p>
+        </div>
+    </div>
+
+
+ <div class="info-description-container">
+        <div class="info-description-overlay">
+            <p class="info-description-text">
+                In-kind donations, such as building materials, equipment, or professional services, are also welcome, and can be arranged by contacting the fundraising team (info@zuhd.au). Volunteers can contribute their time and skills to help with fundraising events, community outreach, or other aspects of the project.
+
+                The benefits of donating to this project are manifold. By contributing to the construction of the mosque and Islamic school, donors will be supporting the education and spiritual development of Muslims in the Point Cook area and Muslims in Australia as a whole. The project will also provide a space for the broader community to learn about Islam and build relationships with their Muslim neighbours, promoting interfaith understanding and harmony.
+            </p>
+        </div>
+    </div>
+ <div class="info-summary-container">
+        <p class="info-summary-text">
+            Furthermore, by supporting this project, donors will be investing in the future of the Muslim community in Australia. The facilities will enable the community to grow and thrive, providing a solid foundation for generations to come <a href="#" class="info-summary-link" id="processDonationsLink">Process Donations here</a>.
+        </p>
+        <p class="info-summary-text">
+            In summary, the Point Cook Mosque project presented by zuhd.au is an important development for the Muslim community in the area, and donations play a crucial role in its success. Individuals and organizations can contribute to this project through financial donations, in-kind donations, or volunteering, and by doing so, they will be supporting the education and spiritual development of Muslims in the community and investing in the future of the Muslim community in Australia.
+        </p>
+    </div>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="/slider1.png" alt="Slide 1"></div>
+            <div class="slide"><img src="/slider2.png" alt="Slide 2"></div>
+            <div class="slide"><img src="/ss1.png" alt="Slide 3"></div>
+            <div class="slide"><img src="/s2.png" alt="Slide 4"></div>
+            <div class="slide"><img src="/s3.png" alt="Slide 5"></div>
+            <div class="slide"><img src="/s4.png" alt="Slide 6"></div>
+
+        </div>
+        <div class="slider-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+        </div>
+    </div>
+
+ <div class="hadith-card">
+        <div class="quote-mark">"</div>
+        <div class="hadith-quote">
+         <p> <span>The  Prophet (ﷺ) said: </span> <br>“Whoever builds a mosque, desiring thereby Allah’s pleasure, Allah builds for him the like of it in paradise.”</p>  
+        </div>
+        <div class="hadith-source">[Bukhari]</div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="/images/flogo.png" alt="ZUHD Logo">
+                </div>
+                <p class="footer-text">Be the first to receive all the recent updates, articles, and valuable deals from ZUHD EXCLUSIVELY.</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Email address">
+                    <button>Subscribe</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.twitter.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkdin.com/zuhd.au" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/zuhd.au" class="social-icon">
+                      <i class="fab fa-tiktok"></i>
+                  </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>ABOUT ACADEMY</h3>
+                <div class="footer-links">
+                    <a href="/story.html">About ZUHD</a>
+                  <a href="/delivery-info-page.html">Delivery</a>
+                  <a href="/tandc.html">Terms and conditions</a>
+                  <a href="/return-policy.html">Return Policy</a>
+                    <a href="#">ZUHD Community</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>EXCLUSIVE SERVICES</h3>
+                <div class="footer-links">
+                    <a href="#">Create Your Style</a>
+                    <a href="#">Request a Stylist</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>CONTACT US</h3>
+                <div class="contact-info">
+                    <p>Call: <a href="tel:+61291000100">+61 291000100</a></p>
+                    <p>Email: <a href="mailto:info@zuhd.store">info@zuhd.store</a></p>
+                </div>
+                
+                <div class="preferences">
+                    <h3>PREFERENCES</h3>
+                    <select class="preference-select">
+                        <option>English</option>
+                        <option>Arabic</option>
+                        <option>Urdu</option>
+                    </select>
+                    <select class="preference-select">
+                        <option>Pakistani Rupee(PKR)</option>
+                        <option>US Dollar(USD)</option>
+                        <option>Euro(EUR)</option>
+                        <option>Australian Dollar(AUD)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <img src="/images/Item (1).svg" alt="American Express">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (2).svg" alt="Apple Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (3).svg" alt="Google Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (4).svg" alt="Mastercard">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (5).svg" alt="PayPal">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (6).svg" alt="Shop Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (1).svg" alt="Union Pay">
+                </div>
+                <div class="payment-method">
+                    <img src="/images/Item (1).svg" alt="Visa">
+                </div>
+            </div>
+            <p>© 2025 ZUHD Academy. All rights reserved.</p>
+        </div>
+    </div>
+    <script>
+        function validateDonation() {
+            const donationInput = document.getElementById('donationAmount');
+            const amount = donationInput.value;
+
+            if (amount === '' || isNaN(amount)) {
+                alert('Please enter a valid number');
+                return;
+            }
+
+            if (amount % 10 !== 0) {
+                alert('Please enter an amount in multiples of 10');
+                return;
+            }
+
+            // Redirect to donation page or process donation
+            alert('Donation of $' + amount + ' selected. Proceeding to donation...');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            const slideWidth = document.querySelector('.slide').offsetWidth;
+            let currentPosition = 0;
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            const visibleSlides = 4;
+            let autoSlideInterval;
+
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentPosition}px)`;
+                
+                // Update active dot
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[Math.floor(currentIndex / visibleSlides)].classList.add('active');
+            }
+
+            function moveToNextSlide() {
+                if (currentIndex < totalSlides - visibleSlides) {
+                    currentPosition += slideWidth;
+                    currentIndex++;
+                } else {
+                    // Reset to beginning
+                    currentPosition = 0;
+                    currentIndex = 0;
+                }
+                updateSlider();
+            }
+
+            // Automatic sliding
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(moveToNextSlide, 3000); // Change slide every 3 seconds
+            }
+
+            // Dot navigation
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const index = parseInt(dot.getAttribute('data-index'));
+                    currentPosition = index * visibleSlides * slideWidth;
+                    currentIndex = index * visibleSlides;
+                    updateSlider();
+                });
+            });
+
+            // Pause auto-sliding on hover
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                startAutoSlide();
+            });
+
+            // Start auto-sliding
+            startAutoSlide();
+        });
+      
+    </script>
+
+<script src="navbar.js"></script>
+
+</body>
+</html>
