@@ -5,203 +5,332 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZUHD Academy - Responsive Navigation</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/zuhd acdmic/academy.html"> 
-    <link rel="stylesheet" href="/about.html"> 
-    <link rel="stylesheet" href="/workshop/workshops.html">
-    <link rel="stylesheet" href="/mosque/mosque-landing-page.html">
-    <link rel="stylesheet" href="Maktab/index.html">
-    <link rel="stylesheet" href="scolar/scholars.html">
     <style>
-       @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-       :root {
-            --primary-color: #C69C3F;
-            --background-dark: #fffbfb;
-            --text-light: #080808;
-        }
+     @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --primary-color: #C69C3F;
+    --background-dark: #fffbfb;
+    --text-light: #080808;
+}
 
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            background-color: var(--background-dark);
-            border-bottom: 1px solid var(--primary-color);
-            position: relative;
-            z-index: 1000;
-            font-family: "Open Sans", serif;
+/* Custom Pattern Logo Animation - Continuous Movement */
+.logo-container {
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
-        }
+.logo-3d-container {
+    transform-style: preserve-3d;
+    width:80px;
+    height: 70px;
+    position: relative;
+    animation: customLogoPattern 8s infinite linear;
+}
 
-        .logo {
-            height:60px;
-        }
+.rotating-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: visible;
+    transform: translateZ(2px);
+}
 
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
+/* Animation with the pattern: 90° → 0° → 0° → -90° → 90° → 0° → 0° → -90° */
+@keyframes customLogoPattern {
+    /* 0% {
+        transform: rotateY(0deg);
+    } */
+    /* 12.5% {
+        transform: rotateY(90deg);
+    } */
+    25% {
+        transform: rotateY(0deg);
+    }
+    37.5% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(-90deg);
+    }
+    62.5% {
+        transform: rotateY(90deg);
+    }
+    75% {
+        transform: rotateY(0deg);
+    }
+    87.5% {
+        transform: rotateY(0deg);
+    }
+    
+}
 
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
+/* Keep the rest of your logo container CSS unchanged */
+.logo-container {
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
+.rotating-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: visible;
+    transform: translateZ(2px);
+}
+/* Rest of your CSS remains the same */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--background-dark);
+    border-bottom: 1px solid var(--primary-color);
+    position: relative;
+    z-index: 1000;
+    font-family: "Open Sans", serif;
+}
 
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
 
-        .store-btn {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
 
-        .store-btn:hover {
-            background-color: #8a69230c;
-            border:1px solid black;
+/* Link Underline Animation */
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 3px;
+}
 
-        }
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
 
-        .mobile-menu-toggle {
-            display: none;
-            background: none; 
-            border: none;
-            color: var(--text-light);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+.nav-links a:hover {
+    color: var(--primary-color);
+}
 
-        /* Mobile Sidebar Styles */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 300px;
-            height: 100%;
-            background-color: var(--background-dark);
-            transition: 0.3s ease;
-            z-index: 1100;
-            padding: 2rem;
-            overflow-y: auto;
-        }
+.nav-links a:hover::after {
+    width: 100%;
+}
+/* End Link Underline Animation */
 
-        .sidebar.active {
-            left: 0;
-        }
+.store-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
 
-        .sidebar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
+.store-btn:hover {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+}
 
-        .sidebar-close {
-            background: none;
-            border: none;
-            color: var(--text-light);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+.mobile-menu-toggle {
+    display: none;
+    background: none; 
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 
-        .sidebar-nav-links {
-            list-style: none;
-        }
+/* Mobile Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    background-color: var(--background-dark);
+    transition: 0.3s ease;
+    z-index: 1100;
+    padding: 2rem;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
 
-        .sidebar-nav-links li {
-            margin-bottom: 1rem;
-        }
+.sidebar.active {
+    left: 0;
+}
 
-        .sidebar-nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
 
-        .sidebar-nav-links a:hover {
-            color: var(--primary-color);
-        }
+.sidebar-close {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 
-        .voice-search {
-            display: flex;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem;
-            border-radius: 25px;
-            margin-bottom: 1rem;
-        }
+.sidebar-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .voice-search input {
-            background: none;
-            border: none;
-            color: var(--text-light);
-            flex-grow: 1;
-            margin-right: 0.5rem;
-        }
+.sidebar-nav-links li {
+    margin-bottom: 1rem;
+}
 
-        .voice-search button {
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            cursor: pointer;
-        }
+/* Sidebar Link Underline Animation */
+.sidebar-nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 3px;
+    display: inline-block;
+}
 
-        .voice-status {
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
+.sidebar-nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            z-index: 1050;
-        }
+.sidebar-nav-links a:hover {
+    color: var(--primary-color);
+}
 
-        .overlay.active {
-            display: block;
-        }
+.sidebar-nav-links a:hover::after {
+    width: 100%;
+}
+/* End Sidebar Link Underline Animation */
 
-        /* Responsive Design */
-        @media screen and (max-width: 1024px) {
-            .nav-links,
-            .store-btn {
-                display: none;
-            }
+.voice-search {
+    display: flex;
+    align-items: center;
+    background-color: rgba(198, 156, 63, 0.1);
+    padding: 0.5rem;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--primary-color);
+}
 
-            .mobile-menu-toggle {
-                display: block;
-            }
+.voice-search input {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    flex-grow: 1;
+    margin-right: 0.5rem;
+    outline: none;
+    padding: 0.5rem;
+}
 
-            .navbar {
-                justify-content: space-between;
-            }
-        }
+.voice-search button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.voice-status {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    height: 20px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1050;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .nav-links,
+    .store-btn {
+        display: block;
+    } 
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+    
+    .logo-3d-container {
+        width: 85px; /* Smaller on mobile */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo-3d-container {
+    transform-style: preserve-3d;
+    width:80px;
+    height: 70px;
+    position: relative;
+    animation: customLogoPattern 8s infinite linear;
+}
+   
+    
+    .sidebar {
+        width: 80%; /* Make sidebar more responsive */
+    }
+}
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="/index.html"><img src="/acadmyimg/logo.png" alt="ZUHD Logo" class="logo"></a>
-        
+        <a href="/index.html" class="logo-container">
+            <div class="logo-3d-container">
+                <img src="/zuhdlogo.png" alt="ZUHD Logo" class="rotating-image">
+            </div>
+        </a>
         <div class="nav-menu">
             <div class="nav-links">
                 <a href="/index.html">Home</a>
@@ -211,114 +340,78 @@
                 <a href="/mosque.html">Masjid</a>
                 <a href="/story.html">About Us</a>
                 <a href="/scolar.html">Our Scholars</a>
+                <a href="/lecture.html">Lectures</a>
+                <a href="https://zuhd.store/">Zuhd Store</a>
+
             </div>
-            <a href="https://zuhd.store/" class="store-btn" target="_blank"> <i class="fa-solid fa-cart-shopping"></i>
-                Zuhd Store</a>
+          
         </div>
 
         <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
             <i class="fas fa-bars"></i>
         </button>
-          <!-- Mobile Sidebar -->
-    <div class="overlay"></div>
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <img src="/acadmyimg/logo.png" alt="ZUHD Logo" class="logo"></a>
-            <button class="sidebar-close" aria-label="Close Navigation">
-                <i class="fas fa-times"></i>
-            </button>
+        
+        <!-- Mobile Sidebar -->
+        <div class="overlay"></div>
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <a href="/index.html" class="logo-container">
+                    <div class="logo-3d-container">
+                        <img src="/zuhdlogo.png" alt="ZUHD Logo" class="rotating-image">
+                    </div>
+                </a>
+                <button class="sidebar-close" aria-label="Close Navigation">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="voice-search">
+                <input type="text" placeholder="Voice Search" id="voice-input" readonly>
+                <button id="voice-btn">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+
+            <div class="voice-status" id="voice-status"></div>
+
+            <ul class="sidebar-nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/zuhd.html">Academy</a></li>
+                <li><a href="/workshop-sections.html">Workshops</a></li>
+                <li><a href="/maktab.html">After School Classes</a></li>
+                <li><a href="/mosque.html">Masjid</a></li>
+                <li><a href="/story.html">About Us</a></li>
+                <li><a href="/scolar.html">Our Scholars</a></li>
+                <li> <a href="/lecture.html">Lectures</a></li>
+                <li> <a href="https://zuhd.store/" class="store-btn" target="_blank"> <i class="fa-solid fa-cart-shopping"></i>
+                    Zuhd Store</a></li>
+            </ul>
         </div>
-
-        <div class="voice-search">
-            <input type="text" placeholder="Voice Search" id="voice-input" readonly>
-            <button id="voice-btn">
-                <i class="fas fa-microphone"></i>
-            </button>
-        </div>
-
-        <div class="voice-status" id="voice-status"></div>
-
-        <ul class="sidebar-nav-links">
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/zuhd.html">Academy</a></li>
-            <li><a href="/workshop-sections.html">Workshops</a></li>
-            <li><a href="/maktab.html">After School Classes</a></li>
-            <li><a href="/mosque.html">Masjid</a></li>
-            <li><a href="/story.html">About Us</a></li>
-            <li><a href="/scolar.html">Our Scholars</a></li>
-            <li><a href="https://zuhd.store/">Zuhd Store</a></li>
-        </ul>
-    </div>
     </nav>
 
     <script>
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        //     const sidebarClose = document.querySelector('.sidebar-close');
-        //     const sidebar = document.querySelector('.sidebar');
-        //     const overlay = document.querySelector('.overlay');
-        //     const voiceBtn = document.getElementById('voice-btn');
-        //     const voiceInput = document.getElementById('voice-input');
-        //     const voiceStatus = document.getElementById('voice-status');
+        // JavaScript for mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const sidebarClose = document.querySelector('.sidebar-close');
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.overlay');
 
-        //     // Toggle Sidebar
-        //     function toggleSidebar() {
-        //         sidebar.classList.toggle('active');
-        //         overlay.classList.toggle('active');
-        //     }
+            mobileMenuToggle.addEventListener('click', function() {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
 
-        //     mobileMenuToggle.addEventListener('click', toggleSidebar);
-        //     sidebarClose.addEventListener('click', toggleSidebar);
-        //     overlay.addEventListener('click', toggleSidebar);
+            sidebarClose.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
 
-        //     // Voice Navigation
-        //     if ('webkitSpeechRecognition' in window) {
-        //         const recognition = new webkitSpeechRecognition();
-        //         recognition.continuous = false;
-        //         recognition.lang = 'en-US';
-
-        //         recognition.onstart = () => {
-        //             voiceStatus.textContent = 'Listening... Speak now';
-        //         };
-
-        //         recognition.onresult = (event) => {
-        //             const transcript = event.results[0][0].transcript.toLowerCase().trim();
-        //             voiceInput.value = transcript;
-        //             voiceStatus.textContent = '';
-
-        //             // Voice Navigation Logic
-        //             const navLinks = document.querySelectorAll('.sidebar-nav-links a');
-        //             let foundMatch = false;
-
-        //             navLinks.forEach(link => {
-        //                 if (transcript.includes(link.textContent.toLowerCase())) {
-        //                     link.click();
-        //                     toggleSidebar(); // Close sidebar after navigation
-        //                     foundMatch = true;
-        //                 }
-        //             });
-
-        //             if (!foundMatch) {
-        //                 voiceStatus.textContent = 'No matching navigation found';
-        //             }
-        //         };
-
-        //         recognition.onerror = (event) => {
-        //             voiceStatus.textContent = 'Error occurred in recognition: ' + event.error;
-        //         };
-
-        //         recognition.onend = () => {
-        //             voiceStatus.textContent = '';
-        //         };
-
-        //         voiceBtn.addEventListener('click', () => {
-        //             recognition.start();
-        //         });
-        //     } else {
-        //         voiceBtn.style.display = 'none';
-        //         voiceStatus.textContent = 'Voice recognition not supported';
-        //     }
-        // });
+            function closeMenu() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     </script>
 </body>
 </html>
