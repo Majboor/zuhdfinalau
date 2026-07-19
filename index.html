@@ -6,7 +6,7 @@
   <title>ZUHD GUIDANCE – Islamic Education</title>
   <!-- Styles -->
 <link rel="stylesheet" href="styles.css?v=2"/>
-  <link rel="stylesheet" href="/lecture.html">
+  <link rel="stylesheet" href="/zuhd-lectures.html">
   <!-- GSAP core + ScrollTrigger CDN -->
   <!-- Your custom JS -->
   <script defer src="script.js"></script>
@@ -547,19 +547,30 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
      <nav>
       <div id="navbar"></div>
    </nav>
-    <!-- Hero Section -->
-     <div class="zuhd-header-section">
-        <video class="video-background" autoplay muted loop playsinline poster="" id="headerVideo">
-            <source src="/Zuhd au Video Banner.mp4" type="video/mp4" media="(min-width: 769px)" id="desktopSource">
-            <source src="/Zuhd au Video Banner - Portrait.mp4" type="video/mp4" media="(max-width: 768px)" id="mobileSource">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-fallback"></div>
-        <div class="header-content">
-            <h1>ZUHD GUIDANCE</h1>
-            <p>Islamic Knowledge. Real Conversations</p>
+    <!-- Hero Carousel -->
+    <section class="zuhd-hero" id="zuhdHero" aria-label="Zuhd Guidance highlights">
+        <div class="zuhd-hero-slide is-active" data-slide="video">
+            <video class="zuhd-hero-media" autoplay muted loop playsinline preload="auto" id="heroVideo" poster="banners/hero-banner-01.png"></video>
+            <div class="zuhd-hero-overlay"></div>
+            <div class="zuhd-hero-caption">
+                <h1>ZUHD GUIDANCE</h1>
+                <p>Islamic Knowledge. Real Conversations</p>
+            </div>
         </div>
-    </div>
+        <div class="zuhd-hero-slide" data-slide="banner1">
+            <img class="zuhd-hero-media" src="banners/hero-banner-01.png" alt="Zuhd Guidance — Islamic knowledge and real conversations" loading="lazy">
+        </div>
+        <div class="zuhd-hero-slide" data-slide="banner2">
+            <img class="zuhd-hero-media" src="banners/hero-banner-02.png" alt="Zuhd Guidance — lectures, workshops and community" loading="lazy">
+        </div>
+        <div class="zuhd-hero-slide" data-slide="banner3">
+            <img class="zuhd-hero-media" src="banners/hero-banner-03.jpg" alt="Zuhd Guidance — authentic scholars and programs" loading="lazy">
+        </div>
+
+        <button class="zuhd-hero-arrow zuhd-hero-prev" aria-label="Previous slide">&#10094;</button>
+        <button class="zuhd-hero-arrow zuhd-hero-next" aria-label="Next slide">&#10095;</button>
+        <div class="zuhd-hero-dots" role="tablist"></div>
+    </section>
     
 <div class="scroll-section">
         <div class="scroll-content">
@@ -632,7 +643,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
                     muted
                     loop
                     playsinline
-                    poster="https://via.placeholder.com/400x280/0F3D2E/C8B88A?text=Video+1">
+                    poster="/placeholder.svg">
                     <source src="/01-Authentic Knowledge from Qualified Scholars.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -649,7 +660,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
                     muted
                     loop
                     playsinline
-                    poster="https://via.placeholder.com/400x280/0F3D2E/C8B88A?text=Video+2">
+                    poster="/placeholder.svg">
                     <source src="/03-Supporting Global Ummah Initiatives.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -666,7 +677,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
                     muted
                     loop
                     playsinline
-                    poster="https://via.placeholder.com/400x280/0F3D2E/C8B88A?text=Video+3">
+                    poster="/placeholder.svg">
                     <source src="/04-Designed for All Ages & Every Stage.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -683,7 +694,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
                     muted
                     loop
                     playsinline
-                    poster="https://via.placeholder.com/400x280/0F3D2E/C8B88A?text=Video+4">
+                    poster="/placeholder.svg">
                     <source src="/05-Innovation in Islamic Learning.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -696,8 +707,49 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
         </div>
     </div>
 </div>
+    <!-- Our Workshops -->
+    <section class="zuhd-workshops" id="workshops">
+        <div class="zuhd-section-inner">
+            <h2 class="zuhd-workshops-title">Our Workshops</h2>
+            <p class="zuhd-workshops-sub">Practical, scholar-led programs for the whole family</p>
+            <div class="zuhd-workshops-grid">
+                <a href="/events.html" class="zuhd-workshop-card">
+                    <img src="banners/workshop-pre-ramadan.png" alt="Pre-Ramadan Workshop — prepare your heart and home for Ramadan" loading="lazy">
+                    <div class="zuhd-workshop-info">
+                        <h3>Pre-Ramadan Workshop</h3>
+                        <p>Prepare spiritually and practically for the blessed month.</p>
+                        <span class="zuhd-card-cta">View details →</span>
+                    </div>
+                </a>
+                <a href="/events.html" class="zuhd-workshop-card">
+                    <img src="banners/workshop-raising-children.png" alt="Raising Muslim Children workshop" loading="lazy">
+                    <div class="zuhd-workshop-info">
+                        <h3>Raising Muslim Children</h3>
+                        <p>Guidance for parents nurturing faith in the next generation.</p>
+                        <span class="zuhd-card-cta">View details →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- After School Classes (Maktab) -->
+    <section class="zuhd-maktab" id="maktab">
+        <div class="zuhd-section-inner zuhd-maktab-inner">
+            <div class="zuhd-maktab-media">
+                <img src="banners/maktab-01.png" alt="After School Classes for Kids — Zuhd Maktab" loading="lazy">
+            </div>
+            <div class="zuhd-maktab-text">
+                <h2>After School Classes for Kids</h2>
+                <p class="zuhd-maktab-tag">Zuhd Maktab</p>
+                <p>Qur'an reading, Islamic manners, and essential knowledge — taught in a safe, nurturing environment designed for children.</p>
+                <a href="/after-school-classes.html" class="zuhd-btn-gold">Explore the Maktab</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Content Section -->
- 
+
   <!-- Main Slider Container -->
    <!-- Top Videos Section -->
   <section class="top-videos-section">
@@ -859,6 +911,28 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
         <span id="iq-toast-message"></span>
     </div>
  
+     <!-- Announcements / Coming Soon -->
+     <section class="zuhd-announcements" id="announcements">
+        <div class="zuhd-section-inner">
+            <h2 class="zuhd-workshops-title">Coming Soon</h2>
+            <p class="zuhd-workshops-sub">Stay tuned — new scholars, lectures, and events on the way</p>
+            <div class="zuhd-announce-grid">
+                <div class="zuhd-announce-card">
+                    <img src="banners/intl-scholars-coming-soon.png" alt="International scholars coming soon — stay tuned" loading="lazy">
+                    <div class="zuhd-announce-label">International Scholars</div>
+                </div>
+                <div class="zuhd-announce-card">
+                    <img src="banners/mufti-mangera.jpg" alt="Mufti Abdur Rahman Mangera" loading="lazy">
+                    <div class="zuhd-announce-label">Mufti Abdur Rahman Mangera</div>
+                </div>
+                <div class="zuhd-announce-card">
+                    <img src="banners/lecture-coming-soon.png" alt="New lecture coming soon" loading="lazy">
+                    <div class="zuhd-announce-label">New Lecture Series</div>
+                </div>
+            </div>
+        </div>
+     </section>
+
      <!-- Instagram Posts Section -->
       <div class="instagram-main" >
            
@@ -875,13 +949,13 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
                         <li><a href="/about-zuhd.html" onclick="linkClick('About ZUHD')">About ZUHD</a></li>
                         <li><a href="/zuhd-lectures.html" onclick="linkClick('ZUHD Lectures')">ZUHD Lectures</a></li>
                         <li><a href="/after-school-classes.html" onclick="linkClick('After School Classes')">After School Classes</a></li>
-                        <li><a href="/terms.html" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
+                        <li><a href="/tandc.html" onclick="linkClick('Terms and conditions')">Terms and conditions</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="/store.html" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
+                        <li><a href="https://zuhd.store/" onclick="linkClick('zuhd Store')">zuhd Store</a></li>
                         <li><a href="/donate.html" onclick="linkClick('Donate Now')">Donate Now</a></li>
                         <li><a href="/ziyarat.html" onclick="linkClick('Ziyarat')">Ziyarat</a></li>
                     </ul>
@@ -892,8 +966,8 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
                         <li><a href="/about-zuhd.html" onclick="linkClick('Our Story')">Our Story</a></li>
                         <li><a href="/blog.html" onclick="linkClick('Blog')">Blog</a></li>
                         <li><a href="/about-zuhd.html" onclick="linkClick('About Us')">About Us</a></li>
-                        <li><a href="/contact.html" onclick="linkClick('Contact Us')">Contact Us</a></li>
-                        <li><a href="/faq.html" onclick="linkClick('FAQ')">FAQ's</a></li>
+                        <li><a href="/consultation.html" onclick="linkClick('Contact Us')">Contact Us</a></li>
+                        <li><a href="/qnq.html" onclick="linkClick('FAQ')">FAQ's</a></li>
                     </ul>
                 </div>
                 <div class="footer-column newsletter">
@@ -921,13 +995,13 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
             </div>
             <div class="footer-bottom">
                 <div class="copyright">
-                    © 2024 Zuhd Guidance All rights reserved.
+                    © 2026 Zuhd Guidance All rights reserved.
                 </div>
                 <div class="footer-links">
-                    <a href="#" onclick="linkClick('Terms of Service')">Terms of Service</a>
-                    <a href="#" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
-                    <a href="#" onclick="linkClick('Refund Policy')">Refund Policy</a>
-                    <a href="#" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
+                    <a href="/tandc.html" onclick="linkClick('Terms of Service')">Terms of Service</a>
+                    <a href="/privacy-policy.html" onclick="linkClick('Privacy Policy')">Privacy Policy</a>
+                    <a href="/return-policy.html" onclick="linkClick('Refund Policy')">Refund Policy</a>
+                    <a href="/accessibility-policy.html" onclick="linkClick('Accessibility Policy')">Accessibility Policy</a>
                 </div>
             </div>
         </div>
@@ -938,25 +1012,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const playlistItems = document.querySelectorAll('.playlist-item');
     const mainVideoPlayer = document.getElementById('main-video-player');
     const playlistContainer = document.querySelector('.playlist-videos');
- 
-    // Load latest video from ZuhdAU YouTube channel
-    // const YOUTUBE_API_KEY = 'YOUR_API_KEY';
-    // const CHANNEL_ID = 'UCBJzMaa2_fYqNnEOJvg4J0RQ'; // ZuhdAU Channel ID
- 
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&order=date&part=snippet&type=video&maxResults=1`)
-        .then(res => res.json())
-        .then(data => {
-            if (data.items && data.items.length) {
-                const latest = data.items[0];
-                const latestId = latest.id.videoId;
-                const latestTitle = latest.snippet.title;
-                mainVideoPlayer.src = `https://www.youtube.com/embed/${latestId}?rel=0&autoplay=1`;
-                mainVideoPlayer.title = latestTitle;
-            }
-        })
-        .catch(err => {
-            console.error('Failed to load latest video:', err);
-        });
  
     // Video item click handler
     function handleVideoClick(item) {
@@ -1031,7 +1086,7 @@ document.addEventListener('DOMContentLoaded', function() {
             existingEmptyState.remove();
         }
  
-        if (show) {
+        if (show && playlistContainer) {
             const emptyStateDiv = document.createElement('div');
             emptyStateDiv.className = 'empty-state';
             emptyStateDiv.innerHTML = `
@@ -1058,149 +1113,106 @@ document.addEventListener('DOMContentLoaded', function() {
 });
  
  
-class IslamicHeroCarousel {
+class ZuhdHeroCarousel {
     constructor() {
-        this.currentSlide = 0;
-        this.slides = document.querySelectorAll('.faith-slide');
-        this.indicators = document.querySelectorAll('.slide-indicator');
-        this.prevBtn = document.querySelector('.arrow-previous');
-        this.nextBtn = document.querySelector('.arrow-next');
-        this.carousel = document.querySelector('.nourish-hero-carousel');
-        this.totalSlides = this.slides.length;
-        this.autoSlideInterval = null;
- 
-        if (this.slides.length && this.carousel) {
-            this.init();
-        } else {
-            console.warn("Carousel or slides not found. Please check your HTML structure.");
-        }
-    }
- 
-    init() {
-        // Add event listeners
-        this.indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => this.goToSlide(index));
-        });
- 
-        if (this.prevBtn) {
-            this.prevBtn.addEventListener('click', () => this.previousSlide());
-        }
- 
-        if (this.nextBtn) {
-            this.nextBtn.addEventListener('click', () => this.nextSlide());
-        }
- 
-        // Keyboard navigation
+        this.hero = document.getElementById('zuhdHero');
+        if (!this.hero) return;
+        this.slides = Array.from(this.hero.querySelectorAll('.zuhd-hero-slide'));
+        this.dotsWrap = this.hero.querySelector('.zuhd-hero-dots');
+        this.video = document.getElementById('heroVideo');
+        this.current = 0;
+        this.timer = null;
+        this.IMAGE_DELAY = 6000;
+        this.VIDEO_DELAY = 12000;
+        this.initVideo();
+        this.buildDots();
+        this.hero.querySelector('.zuhd-hero-prev').addEventListener('click', () => this.go(this.current - 1, true));
+        this.hero.querySelector('.zuhd-hero-next').addEventListener('click', () => this.go(this.current + 1, true));
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') this.previousSlide();
-            if (e.key === 'ArrowRight') this.nextSlide();
+            if (e.key === 'ArrowLeft') this.go(this.current - 1, true);
+            if (e.key === 'ArrowRight') this.go(this.current + 1, true);
         });
- 
-        // Touch navigation for mobile
-        this.addTouchNavigation();
- 
-        // Start auto-slide
-        this.startAutoSlide();
- 
-        // Pause auto-slide on hover
-        this.carousel.addEventListener('mouseenter', () => this.stopAutoSlide());
-        this.carousel.addEventListener('mouseleave', () => this.startAutoSlide());
+        this.addTouch();
+        this.hero.addEventListener('mouseenter', () => this.stop());
+        this.hero.addEventListener('mouseleave', () => this.schedule());
+        this.schedule();
     }
- 
-    goToSlide(slideIndex) {
-        if (this.slides.length === 0) return;
- 
-        this.slides[this.currentSlide].classList.remove('slide-active');
-        this.slides[this.currentSlide].classList.add('slide-previous');
-        if (this.indicators[this.currentSlide]) {
-            this.indicators[this.currentSlide].classList.remove('indicator-active');
-        }
- 
-        this.currentSlide = slideIndex;
- 
-        this.slides[this.currentSlide].classList.remove('slide-previous');
-        this.slides[this.currentSlide].classList.add('slide-active');
-        if (this.indicators[this.currentSlide]) {
-            this.indicators[this.currentSlide].classList.add('indicator-active');
-        }
- 
-        setTimeout(() => {
-            this.slides.forEach(slide => {
-                if (!slide.classList.contains('slide-active')) {
-                    slide.classList.remove('slide-previous');
-                }
-            });
-        }, 800);
-    }
- 
-    nextSlide() {
-        const nextIndex = (this.currentSlide + 1) % this.totalSlides;
-        this.goToSlide(nextIndex);
-    }
- 
-    previousSlide() {
-        const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-        this.goToSlide(prevIndex);
-    }
- 
-    startAutoSlide() {
-        this.autoSlideInterval = setInterval(() => {
-            this.nextSlide();
-        }, 5000); // changed to 3 seconds
-    }
- 
-    stopAutoSlide() {
-        if (this.autoSlideInterval) {
-            clearInterval(this.autoSlideInterval);
-            this.autoSlideInterval = null;
-        }
-    }
- 
-    addTouchNavigation() {
-        let startX, startY, dist, threshold = 150;
-        let isHorizontalSwipe = false;
- 
-        if (!this.carousel) return;
- 
-        this.carousel.addEventListener('touchstart', (e) => {
-            const touch = e.touches[0];
-            startX = touch.clientX;
-            startY = touch.clientY;
-            isHorizontalSwipe = false;
-        });
- 
-        this.carousel.addEventListener('touchmove', (e) => {
-            const touch = e.touches[0];
-            const deltaX = Math.abs(touch.clientX - startX);
-            const deltaY = Math.abs(touch.clientY - startY);
-           
-            // Only prevent scrolling if it's a horizontal swipe
-            if (deltaX > deltaY && deltaX > 10) {
-                isHorizontalSwipe = true;
-                e.preventDefault();
+
+    // Browsers ignore media queries on <video><source>, so pick the file in JS
+    initVideo() {
+        if (!this.video) return;
+        const portrait = window.matchMedia('(max-width: 768px) and (orientation: portrait)');
+        const setSrc = () => {
+            const want = portrait.matches ? 'banners/hero-video-portrait.mp4' : 'banners/hero-video.mp4';
+            if (!this.video.src.endsWith(want)) {
+                this.video.src = want;
+                this.video.load();
+                this.video.play().catch(() => {});
             }
+        };
+        setSrc();
+        portrait.addEventListener ? portrait.addEventListener('change', setSrc) : portrait.addListener(setSrc);
+    }
+
+    buildDots() {
+        this.slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'zuhd-hero-dot' + (i === 0 ? ' is-active' : '');
+            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            dot.addEventListener('click', () => this.go(i, true));
+            this.dotsWrap.appendChild(dot);
         });
- 
-        this.carousel.addEventListener('touchend', (e) => {
-            if (isHorizontalSwipe) {
-                const touch = e.changedTouches[0];
-                dist = touch.clientX - startX;
- 
-                if (Math.abs(dist) > threshold) {
-                    if (dist > 0) {
-                        this.previousSlide();
-                    } else {
-                        this.nextSlide();
-                    }
-                }
-            }
+        this.dots = Array.from(this.dotsWrap.children);
+    }
+
+    go(index, manual) {
+        const n = this.slides.length;
+        const next = (index + n) % n;
+        if (next === this.current && manual) return;
+        this.slides[this.current].classList.remove('is-active');
+        this.dots[this.current].classList.remove('is-active');
+        this.current = next;
+        this.slides[this.current].classList.add('is-active');
+        this.dots[this.current].classList.add('is-active');
+        if (this.video) {
+            if (this.slides[this.current].dataset.slide === 'video') this.video.play().catch(() => {});
+            else this.video.pause();
+        }
+        this.schedule();
+    }
+
+    schedule() {
+        this.stop();
+        const isVideo = this.slides[this.current].dataset.slide === 'video';
+        this.timer = setTimeout(() => this.go(this.current + 1), isVideo ? this.VIDEO_DELAY : this.IMAGE_DELAY);
+    }
+
+    stop() {
+        if (this.timer) { clearTimeout(this.timer); this.timer = null; }
+    }
+
+    addTouch() {
+        let startX = 0, startY = 0, horizontal = false;
+        this.hero.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            horizontal = false;
+        }, { passive: true });
+        this.hero.addEventListener('touchmove', (e) => {
+            const dx = Math.abs(e.touches[0].clientX - startX);
+            const dy = Math.abs(e.touches[0].clientY - startY);
+            if (dx > dy && dx > 10) horizontal = true;
+        }, { passive: true });
+        this.hero.addEventListener('touchend', (e) => {
+            if (!horizontal) return;
+            const dist = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dist) > 60) this.go(this.current + (dist < 0 ? 1 : -1), true);
         });
     }
 }
- 
-// Initialize carousel when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', () => {
-    new IslamicHeroCarousel();
+    new ZuhdHeroCarousel();
 });
  
 // Placeholder functions for existing functionality
@@ -1597,6 +1609,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const contentSlider = document.getElementById("content-slider");
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
+  if (!contentSlider || !prevBtn || !nextBtn) return;
   const sliderIndicators = document.getElementById("slider-indicators");
  
   let currentIndex = 0;

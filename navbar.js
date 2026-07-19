@@ -190,6 +190,7 @@ window.addEventListener("scroll", function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     const dropdown = document.getElementById('dropdownAboutZuhd');
+    if (!dropdown) return;
     const button = dropdown.querySelector('.dropdown-toggle');
 
     button.addEventListener('click', function () {

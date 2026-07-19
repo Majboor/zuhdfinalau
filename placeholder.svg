@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280">
+  <rect width="400" height="280" fill="#0f3d2e"/>
+  <circle cx="200" cy="118" r="46" fill="none" stroke="#c8b88a" stroke-width="3"/>
+  <path d="M200 84a34 34 0 1 0 24 58 28 28 0 1 1-24-58z" fill="#c8b88a"/>
+  <text x="200" y="216" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#c8b88a" letter-spacing="4">ZUHD</text>
+</svg>

@@ -11854,3 +11854,369 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
           font-size: clamp(0.7rem, 2vw, 0.9rem);
         }
       }
+/* ===================== Zuhd Hero Carousel (2026 redesign) ===================== */
+.zuhd-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    min-height: 480px;
+    overflow: hidden;
+    background: #0a2f22;
+}
+
+.zuhd-hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+
+.zuhd-hero-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+.zuhd-hero-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.zuhd-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10, 47, 34, 0.15) 0%, rgba(10, 47, 34, 0.35) 70%, rgba(10, 47, 34, 0.65) 100%);
+}
+
+.zuhd-hero-caption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    padding: 0 24px;
+}
+
+.zuhd-hero-caption h1 {
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    letter-spacing: 3px;
+    margin-bottom: 0.6rem;
+}
+
+.zuhd-hero-caption p {
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
+    color: #f7efe5;
+    letter-spacing: 1px;
+}
+
+.zuhd-hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: rgba(10, 47, 34, 0.45);
+    color: #c8b88a;
+    border: 1px solid rgba(200, 184, 138, 0.5);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.zuhd-hero-arrow:hover {
+    background: rgba(15, 61, 46, 0.85);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.zuhd-hero-prev { left: 22px; }
+.zuhd-hero-next { right: 22px; }
+
+.zuhd-hero-dots {
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+}
+
+.zuhd-hero-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 1px solid #c8b88a;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.zuhd-hero-dot.is-active {
+    background: #c8b88a;
+    transform: scale(1.25);
+}
+
+@media (max-width: 768px) {
+    .zuhd-hero { min-height: 420px; }
+    .zuhd-hero-arrow { width: 38px; height: 38px; font-size: 0.9rem; }
+    .zuhd-hero-prev { left: 10px; }
+    .zuhd-hero-next { right: 10px; }
+    .zuhd-hero-dots { bottom: 16px; }
+}
+
+/* ===================== New 2026 sections: workshops, maktab, announcements ===================== */
+.zuhd-section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.zuhd-workshops,
+.zuhd-announcements {
+    padding: 70px 0;
+    background: #fefefe;
+}
+
+.zuhd-workshops-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: #0f3d2e;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.zuhd-workshops-sub {
+    text-align: center;
+    color: #8b7355;
+    margin: 10px 0 40px;
+    font-size: 1.05rem;
+}
+
+.zuhd-workshops-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+    gap: 28px;
+}
+
+.zuhd-workshop-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(15, 61, 46, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zuhd-workshop-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 34px rgba(15, 61, 46, 0.22);
+}
+
+.zuhd-workshop-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.zuhd-workshop-info {
+    padding: 20px 22px 24px;
+}
+
+.zuhd-workshop-info h3 {
+    color: #0f3d2e;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.zuhd-workshop-info p {
+    color: #555;
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+.zuhd-card-cta {
+    display: inline-block;
+    margin-top: 12px;
+    color: #c8b88a;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Maktab band */
+.zuhd-maktab {
+    background: linear-gradient(135deg, #0f3d2e 0%, #0a2f22 100%);
+    padding: 70px 0;
+}
+
+.zuhd-maktab-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.zuhd-maktab-media img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 16px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.zuhd-maktab-text h2 {
+    color: #f7efe5;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    margin-bottom: 6px;
+}
+
+.zuhd-maktab-tag {
+    color: #c8b88a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
+.zuhd-maktab-text p {
+    color: #e5e5e5;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.zuhd-btn-gold {
+    display: inline-block;
+    background: #c8b88a;
+    color: #0f3d2e;
+    padding: 13px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.zuhd-btn-gold:hover {
+    background: #f4e4c1;
+    transform: translateY(-2px);
+}
+
+/* Announcements */
+.zuhd-announcements {
+    background: #f7efe5;
+}
+
+.zuhd-announce-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+}
+
+.zuhd-announce-card:not(:first-child) {
+    aspect-ratio: 16 / 9;
+}
+
+.zuhd-announce-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(15, 61, 46, 0.14);
+}
+
+.zuhd-announce-card:first-child {
+    grid-row: span 2;
+}
+
+.zuhd-announce-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+@media (max-width: 900px) {
+    .zuhd-announce-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+
+    .zuhd-announce-card:first-child {
+        grid-row: auto;
+    }
+
+    .zuhd-announce-card img {
+        height: auto;
+    }
+}
+
+.zuhd-announce-card:hover img {
+    transform: scale(1.04);
+}
+
+.zuhd-announce-label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px 18px 16px;
+    background: linear-gradient(to top, rgba(10, 47, 34, 0.9), transparent);
+    color: #f7efe5;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .zuhd-workshops,
+    .zuhd-maktab,
+    .zuhd-announcements {
+        padding: 48px 0;
+    }
+
+    .zuhd-maktab-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .zuhd-maktab-text {
+        text-align: center;
+    }
+}
+
+/* Prevent flash of un-styled injected navbar: menus stay hidden until their own CSS loads */
+#navbar .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+#navbar .dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+@media (max-width: 768px) {
+    #navbar .nav-menu {
+        transform: translateX(-100%);
+    }
+    #navbar .nav-menu.active {
+        transform: translateX(0);
+    }
+}

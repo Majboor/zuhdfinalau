@@ -1673,6 +1673,7 @@ class ZiayaratVideoSlider {
                 this.slides = document.querySelectorAll('.ziayarat-video-slide');
                 this.totalSlides = this.slides.length;
                 this.maxSlideIndex = Math.max(0, this.totalSlides - this.slidesPerView);
+                if (!this.videoTrack) return;
                 
                 this.initializeSlider();
                 this.setupEventListeners();
@@ -1694,6 +1695,7 @@ class ZiayaratVideoSlider {
             }
 
             setupEventListeners() {
+                if (!this.prevButton || !this.nextButton) return;
                 this.prevButton.addEventListener('click', () => this.navigateSlide('prev'));
                 this.nextButton.addEventListener('click', () => this.navigateSlide('next'));
                 
