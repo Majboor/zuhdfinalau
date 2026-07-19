@@ -9,11 +9,11 @@
     <!-- GSAP core + ScrollTrigger CDN -->
     <script
       defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
     ></script>
     <script
       defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
     ></script>
     <!-- Your custom JS -->
     <script defer src="script.js"></script>
@@ -789,6 +789,22 @@
           </div>
         </div>
       </div>
+
+      <!-- International Scholars — Coming Soon -->
+      <section class="zuhd-intl-scholars">
+        <div class="zuhd-section-inner zuhd-intl-inner">
+          <div class="zuhd-intl-media">
+            <img src="/banners/intl-scholars-coming-soon-sq.jpg" alt="International scholars coming soon — stay tuned" loading="lazy">
+          </div>
+          <div class="zuhd-intl-text">
+            <p class="zuhd-maktab-tag">Stay Tuned</p>
+            <h2>International Scholars Coming Soon</h2>
+            <p>World-renowned scholars are joining us in Australia for exclusive lectures and programs. Featuring Dr. Mufti Abdur Rahman Mangera and more to be announced.</p>
+            <img class="zuhd-intl-feature" src="/banners/mufti-mangera.jpg" alt="Dr. Mufti Abdur Rahman Mangera — coming soon" loading="lazy">
+            <a href="/events.html" class="zuhd-btn-gold">See Upcoming Events</a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Modal -->
@@ -998,14 +1014,7 @@
           },
         });
 
-        // Modal animation
-        gsap.from(".modal-content", {
-          opacity: 0,
-          y: 100,
-          duration: 0.5,
-          ease: "power2.out",
-          when: "modal.show",
-        });
+        // Modal entrance is handled by the .modal-content.show CSS transition
       });
 
       // Modal functions

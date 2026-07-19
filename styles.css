@@ -12220,3 +12220,69 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         transform: translateX(0);
     }
 }
+
+/* International Scholars band (scholars page) */
+.zuhd-intl-scholars {
+    background: linear-gradient(135deg, #0f3d2e 0%, #0a2f22 100%);
+    padding: 70px 0;
+    margin-top: 60px;
+}
+
+.zuhd-intl-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.zuhd-intl-media img {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 16px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.zuhd-intl-text h2 {
+    color: #f7efe5;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    margin-bottom: 14px;
+}
+
+.zuhd-intl-text > p {
+    color: #e5e5e5;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.zuhd-intl-feature {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 900px) {
+    .zuhd-intl-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .zuhd-intl-text {
+        text-align: center;
+    }
+}
+
+/* Lecture coming soon band (lectures page) */
+.zuhd-lecture-soon {
+    padding: 60px 0 30px;
+}
+
+.zuhd-lecture-soon-banner img {
+    width: 100%;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 8px 30px rgba(15, 61, 46, 0.2);
+}
