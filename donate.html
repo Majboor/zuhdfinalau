@@ -271,8 +271,10 @@ function processDonation() {
         return;
     }
 
-    // 2. Optional cause selection
-    const selectedCause = document.querySelector(".zuhd-cause-card.selected")?.dataset.cause || "";
+    // 2. Cause: radio selection first, then highlighted cause card
+    const selectedCause = document.querySelector('input[name="cause"]:checked')?.value
+        || document.querySelector(".zuhd-cause-card.selected")?.dataset.cause
+        || "";
 
     // 3. Create the donation checkout (Shopify draft order via /api/donate)
     const btn = document.querySelector(".zuhd-donate-btn");

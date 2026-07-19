@@ -12277,7 +12277,10 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
 
 /* Lecture coming soon band (lectures page) */
 .zuhd-lecture-soon {
-    padding: 60px 0 30px;
+    background: #f7efe5;
+    border-radius: 20px;
+    margin: 50px 25px 30px;
+    padding: 50px 0 60px;
 }
 
 .zuhd-lecture-soon-banner img {
