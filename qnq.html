@@ -127,6 +127,24 @@
             </div>
         </div>
     </div>
+
+    <!-- Ask a Question -->
+    <section class="zuhd-ask" id="ask">
+        <div class="zuhd-section-inner zuhd-ask-inner">
+            <h2 class="zuhd-workshops-title">Ask Your Own Question</h2>
+            <p class="zuhd-workshops-sub">Didn't find your answer? Send us your question and we'll reply by email, in shaa Allah.</p>
+            <form class="zuhd-ask-form" id="askForm">
+                <div class="zuhd-ask-row">
+                    <input type="text" id="askName" placeholder="Your name (optional)" maxlength="100">
+                    <input type="email" id="askEmail" placeholder="Your email *" required maxlength="150">
+                </div>
+                <textarea id="askQuestion" placeholder="Write your question here… *" required minlength="5" maxlength="3000" rows="5"></textarea>
+                <button type="submit" class="zuhd-btn-gold" id="askSubmit">Send Question</button>
+                <p class="zuhd-ask-status" id="askStatus" role="status"></p>
+            </form>
+        </div>
+    </section>
+
 <div class="banner">
         <div class="decorative-elements">
             <div class="circle"></div>
@@ -212,10 +230,8 @@
     <script>
         // Ask question function
         function askQuestion() {
-            const question = prompt("Please enter your Islamic question:");
-            if (question && question.trim()) {
-                alert("Thank you for your question! Our scholars will review it and provide an answer soon. You can check back later or contact us directly for urgent matters.");
-            }
+            document.getElementById('ask').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(function () { document.getElementById('askQuestion').focus(); }, 600);
         }
 
         // Switch category function
@@ -317,7 +333,44 @@
             });
         });
     </script>
-                 <script src="navbar.js"></script>
+                 <script>
+    document.getElementById('askForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('askSubmit');
+        var status = document.getElementById('askStatus');
+        status.className = 'zuhd-ask-status';
+        status.textContent = '';
+        btn.disabled = true;
+        var oldLabel = btn.textContent;
+        btn.textContent = 'Sending…';
+        fetch('/api/ask', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: document.getElementById('askName').value,
+                email: document.getElementById('askEmail').value,
+                question: document.getElementById('askQuestion').value
+            })
+        }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+            if (res.ok && res.d.ok) {
+                status.classList.add('ok');
+                status.textContent = res.d.message || 'Your question has been sent!';
+                document.getElementById('askForm').reset();
+            } else {
+                status.classList.add('err');
+                status.textContent = (res.d && res.d.error) || 'Could not send. Please email info@zuhd.store.';
+            }
+        }).catch(function () {
+            status.classList.add('err');
+            status.textContent = 'Could not send. Please email info@zuhd.store.';
+        }).finally(function () {
+            btn.disabled = false;
+            btn.textContent = oldLabel;
+        });
+    });
+    </script>
+    <script src="navbar.js"></script>
 <script src="/cacheBuster.js"></script>
 
 </body>

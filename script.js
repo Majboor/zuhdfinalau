@@ -1496,23 +1496,13 @@ class IslamicQuoteApp {
     const quoteSourceElement = document.getElementById("iq-quote-source")
     const authorElement = document.getElementById("iq-author")
 
-    if (quoteTextElement) {
-      quoteTextElement.textContent = this.currentQuote.text
-    } else {
-      console.error("Element with ID 'iq-quote-text' not found.")
-    }
-    if (quoteSourceElement) {
-      quoteSourceElement.textContent = this.currentQuote.source
-    } else {
-      console.error("Element with ID 'iq-quote-source' not found.")
-    }
+    // Quote widget only exists on some pages
+    if (!quoteTextElement && !quoteSourceElement && !authorElement) return
+
+    if (quoteTextElement) quoteTextElement.textContent = this.currentQuote.text
+    if (quoteSourceElement) quoteSourceElement.textContent = this.currentQuote.source
     const author = this.extractAuthor(this.currentQuote.source)
-    if (authorElement) {
-      authorElement.textContent = author
-    } else {
-      console.error("Element with ID 'iq-author' not found.")
-    }
-    console.log("Displayed quote:", this.currentQuote.text)
+    if (authorElement) authorElement.textContent = author
   }
 
   extractAuthor(source) {

@@ -566,12 +566,7 @@
     </nav>
     <!-- Header Section -->
     <div class="zuhd-header-section">
-        <video class="video-background" autoplay muted loop playsinline poster="" id="headerVideo">
-            <source src="/Zuhd au Video Banner.mp4" type="video/mp4" media="(min-width: 769px)" id="desktopSource">
-            <source src="/Zuhd au Video Banner - Portrait.mp4" type="video/mp4" media="(max-width: 768px)" id="mobileSource">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-fallback"></div>
+        <video class="video-background" autoplay muted loop playsinline preload="auto" poster="/banners/hero-banner-01.png" id="headerVideo"></video>
         <div class="header-content">
             <h1>ABOUT ZUHD GUIDANCE</h1>
             <p>Islamic Knowledge. Real Conversations</p>
@@ -945,6 +940,23 @@
             alert('Thank you for subscribing! (This is a demo)');
             event.target.reset();
         }
+    </script>
+    <script>
+    (function () {
+        var v = document.getElementById('headerVideo');
+        if (!v) return;
+        var portrait = window.matchMedia('(max-width: 768px) and (orientation: portrait)');
+        function setSrc() {
+            var want = portrait.matches ? '/banners/hero-video-portrait.mp4' : '/banners/hero-video.mp4';
+            if (!v.src || v.src.indexOf(want) === -1) {
+                v.src = want;
+                v.load();
+                v.play().catch(function () {});
+            }
+        }
+        setSrc();
+        portrait.addEventListener ? portrait.addEventListener('change', setSrc) : portrait.addListener(setSrc);
+    })();
     </script>
     <script src="navbar.js"></script>
     <script src="/cacheBuster.js"></script>

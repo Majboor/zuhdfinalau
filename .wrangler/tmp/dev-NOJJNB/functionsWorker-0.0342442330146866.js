@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 
-// ../../.wrangler/tmp/pages-YuC9GZ/functionsWorker-0.5732802523304767.mjs
+// ../../.wrangler/tmp/pages-sv7ZIa/functionsWorker-0.0342442330146866.mjs
 var __defProp2 = Object.defineProperty;
 var __name2 = /* @__PURE__ */ __name((target, value) => __defProp2(target, "name", { value, configurable: true }), "__name");
 var JSON_HEADERS = {
@@ -596,9 +596,9 @@ var pages_template_worker_default = {
           },
           env,
           waitUntil: workerContext.waitUntil.bind(workerContext),
-          passThroughOnException: () => {
+          passThroughOnException: /* @__PURE__ */ __name2(() => {
             isFailOpen = true;
-          }
+          }, "passThroughOnException")
         };
         const response = await handler(context);
         if (!(response instanceof Response)) {
@@ -700,21 +700,28 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 __name2(__facade_invoke__, "__facade_invoke__");
-var __Facade_ScheduledController__ = /* @__PURE__ */ __name(class {
+var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
+  static {
+    __name(this, "___Facade_ScheduledController__");
+  }
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
     this.cron = cron;
     this.#noRetry = noRetry;
   }
+  scheduledTime;
+  cron;
+  static {
+    __name2(this, "__Facade_ScheduledController__");
+  }
   #noRetry;
   noRetry() {
-    if (!(this instanceof __Facade_ScheduledController__)) {
+    if (!(this instanceof ___Facade_ScheduledController__)) {
       throw new TypeError("Illegal invocation");
     }
     this.#noRetry();
   }
-}, "__Facade_ScheduledController__");
-__name2(__Facade_ScheduledController__, "__Facade_ScheduledController__");
+};
 function wrapExportedHandler(worker) {
   if (__INTERNAL_WRANGLER_MIDDLEWARE__ === void 0 || __INTERNAL_WRANGLER_MIDDLEWARE__.length === 0) {
     return worker;
@@ -756,15 +763,15 @@ function wrapWorkerEntrypoint(klass) {
     __facade_register__(middleware);
   }
   return class extends klass {
-    #fetchDispatcher = (request, env, ctx) => {
+    #fetchDispatcher = /* @__PURE__ */ __name2((request, env, ctx) => {
       this.env = env;
       this.ctx = ctx;
       if (super.fetch === void 0) {
         throw new Error("Entrypoint class does not define a fetch() function.");
       }
       return super.fetch(request);
-    };
-    #dispatcher = (type, init) => {
+    }, "#fetchDispatcher");
+    #dispatcher = /* @__PURE__ */ __name2((type, init) => {
       if (type === "scheduled" && super.scheduled !== void 0) {
         const controller = new __Facade_ScheduledController__(
           Date.now(),
@@ -774,7 +781,7 @@ function wrapWorkerEntrypoint(klass) {
         );
         return super.scheduled(controller);
       }
-    };
+    }, "#dispatcher");
     fetch(request) {
       return __facade_invoke__(
         request,
@@ -796,7 +803,7 @@ if (typeof middleware_insertion_facade_default === "object") {
 }
 var middleware_loader_entry_default = WRAPPED_ENTRY;
 
-// ../../../../.npm/_npx/e285777f05c9c6c1/node_modules/wrangler/templates/middleware/middleware-ensure-req-body-drained.ts
+// ../../../../.npm/_npx/095711ed2bffd7f3/node_modules/wrangler/templates/middleware/middleware-ensure-req-body-drained.ts
 var drainBody2 = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx) => {
   try {
     return await middlewareCtx.next(request, env);
@@ -814,7 +821,7 @@ var drainBody2 = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx
 }, "drainBody");
 var middleware_ensure_req_body_drained_default2 = drainBody2;
 
-// ../../../../.npm/_npx/e285777f05c9c6c1/node_modules/wrangler/templates/middleware/middleware-miniflare3-json-error.ts
+// ../../../../.npm/_npx/095711ed2bffd7f3/node_modules/wrangler/templates/middleware/middleware-miniflare3-json-error.ts
 function reduceError2(e) {
   return {
     name: e?.name,
@@ -837,14 +844,14 @@ var jsonError2 = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx
 }, "jsonError");
 var middleware_miniflare3_json_error_default2 = jsonError2;
 
-// .wrangler/tmp/bundle-tCVX7Q/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-M0bepP/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__2 = [
   middleware_ensure_req_body_drained_default2,
   middleware_miniflare3_json_error_default2
 ];
 var middleware_insertion_facade_default2 = middleware_loader_entry_default;
 
-// ../../../../.npm/_npx/e285777f05c9c6c1/node_modules/wrangler/templates/middleware/common.ts
+// ../../../../.npm/_npx/095711ed2bffd7f3/node_modules/wrangler/templates/middleware/common.ts
 var __facade_middleware__2 = [];
 function __facade_register__2(...args) {
   __facade_middleware__2.push(...args.flat());
@@ -869,22 +876,26 @@ function __facade_invoke__2(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__2, "__facade_invoke__");
 
-// .wrangler/tmp/bundle-tCVX7Q/middleware-loader.entry.ts
-var __Facade_ScheduledController__2 = class {
+// .wrangler/tmp/bundle-M0bepP/middleware-loader.entry.ts
+var __Facade_ScheduledController__2 = class ___Facade_ScheduledController__2 {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
     this.cron = cron;
     this.#noRetry = noRetry;
   }
+  scheduledTime;
+  cron;
+  static {
+    __name(this, "__Facade_ScheduledController__");
+  }
   #noRetry;
   noRetry() {
-    if (!(this instanceof __Facade_ScheduledController__2)) {
+    if (!(this instanceof ___Facade_ScheduledController__2)) {
       throw new TypeError("Illegal invocation");
     }
     this.#noRetry();
   }
 };
-__name(__Facade_ScheduledController__2, "__Facade_ScheduledController__");
 function wrapExportedHandler2(worker) {
   if (__INTERNAL_WRANGLER_MIDDLEWARE__2 === void 0 || __INTERNAL_WRANGLER_MIDDLEWARE__2.length === 0) {
     return worker;
@@ -925,15 +936,15 @@ function wrapWorkerEntrypoint2(klass) {
     __facade_register__2(middleware);
   }
   return class extends klass {
-    #fetchDispatcher = (request, env, ctx) => {
+    #fetchDispatcher = /* @__PURE__ */ __name((request, env, ctx) => {
       this.env = env;
       this.ctx = ctx;
       if (super.fetch === void 0) {
         throw new Error("Entrypoint class does not define a fetch() function.");
       }
       return super.fetch(request);
-    };
-    #dispatcher = (type, init) => {
+    }, "#fetchDispatcher");
+    #dispatcher = /* @__PURE__ */ __name((type, init) => {
       if (type === "scheduled" && super.scheduled !== void 0) {
         const controller = new __Facade_ScheduledController__2(
           Date.now(),
@@ -943,7 +954,7 @@ function wrapWorkerEntrypoint2(klass) {
         );
         return super.scheduled(controller);
       }
-    };
+    }, "#dispatcher");
     fetch(request) {
       return __facade_invoke__2(
         request,
@@ -967,4 +978,4 @@ export {
   __INTERNAL_WRANGLER_MIDDLEWARE__2 as __INTERNAL_WRANGLER_MIDDLEWARE__,
   middleware_loader_entry_default2 as default
 };
-//# sourceMappingURL=functionsWorker-0.5732802523304767.js.map
+//# sourceMappingURL=functionsWorker-0.0342442330146866.js.map

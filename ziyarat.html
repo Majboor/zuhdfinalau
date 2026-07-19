@@ -59,8 +59,9 @@
 
         /* Video Grid */
         .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 videos per row */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* keeps the last row centered */
             gap: 20px;
             max-width: 1400px;
             margin: 20px auto 40px;
@@ -70,6 +71,8 @@
         }
 
         .video-card {
+            flex: 0 1 calc(25% - 15px);
+            min-width: 240px;
             background: white;
             border-radius: 10px;
             overflow: hidden;
@@ -241,8 +244,8 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .videos-grid {
-                grid-template-columns: repeat(3, 1fr); /* 3 videos per row */
+            .video-card {
+                flex-basis: calc(33.33% - 14px);
             }
             .vlogs-title {
                 font-size: 2.5rem;
@@ -256,8 +259,8 @@
         }
 
         @media (max-width: 768px) {
-            .videos-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 videos per row */
+            .video-card {
+                flex-basis: calc(50% - 10px);
             }
             .vlogs-title {
                 font-size: 2.5rem;
@@ -291,8 +294,8 @@
         }
 
         @media (max-width: 480px) {
-            .videos-grid {
-                grid-template-columns: 1fr; /* 1 video per row */
+            .video-card {
+                flex-basis: 100%;
             }
             .vlogs-title {
                 font-size: 2rem;
