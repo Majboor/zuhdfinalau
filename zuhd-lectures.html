@@ -583,6 +583,23 @@ background-size: 120px 120px;
     </style>
 </head>
 <body>
+<div id="zuhd-loader" aria-hidden="true"><div class="zuhd-loader-ring"></div><div class="zuhd-loader-word">ZUHD</div></div>
+<script>
+(function () {
+    var done = false;
+    function hide() {
+        if (done) return;
+        done = true;
+        var l = document.getElementById('zuhd-loader');
+        if (!l) return;
+        l.classList.add('zuhd-loader-hide');
+        setTimeout(function () { l.remove(); }, 500);
+    }
+    window.addEventListener('load', hide);
+    setTimeout(hide, 3500); // failsafe: never trap the user behind the loader
+})();
+</script>
+
     <nav>
         <div id="navbar"></div>
     </nav>
@@ -687,7 +704,7 @@ background-size: 120px 120px;
                 <h2 class="zuhd-workshops-title">New Lecture Coming Soon</h2>
                 <p class="zuhd-workshops-sub">A brand-new lecture series is on the way — stay tuned</p>
                 <div class="zuhd-lecture-soon-banner">
-                    <img src="/banners/lecture-coming-soon.png" alt="New lecture coming soon — stay tuned" loading="lazy">
+                    <img src="/banners/lecture-coming-soon.jpg" alt="New lecture coming soon — stay tuned" loading="lazy">
                 </div>
             </div>
         </section>

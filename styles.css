@@ -12393,3 +12393,49 @@ input[type="radio"]:checked + .zuhd-radio-label::after {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===================== Page loader ===================== */
+#zuhd-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: linear-gradient(135deg, #0f3d2e 0%, #0a2f22 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    transition: opacity 0.45s ease;
+}
+
+#zuhd-loader.zuhd-loader-hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.zuhd-loader-ring {
+    width: 64px;
+    height: 64px;
+    border: 3px solid rgba(200, 184, 138, 0.25);
+    border-top-color: #c8b88a;
+    border-radius: 50%;
+    animation: zuhdSpin 0.9s linear infinite;
+}
+
+.zuhd-loader-word {
+    color: #c8b88a;
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    letter-spacing: 8px;
+    text-indent: 8px;
+    animation: zuhdPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes zuhdSpin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes zuhdPulse {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+}

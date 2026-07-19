@@ -26,8 +26,33 @@
         .policy-section ul { padding-left: 34px; }
         a { color: #0f3d2e; }
     </style>
+<style>
+#zuhd-loader{position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0f3d2e 0%,#0a2f22 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .45s ease}
+#zuhd-loader.zuhd-loader-hide{opacity:0;pointer-events:none}
+.zuhd-loader-ring{width:64px;height:64px;border:3px solid rgba(200,184,138,.25);border-top-color:#c8b88a;border-radius:50%;animation:zuhdSpin .9s linear infinite}
+.zuhd-loader-word{color:#c8b88a;font-family:Georgia,serif;font-size:1.1rem;letter-spacing:8px;text-indent:8px;animation:zuhdPulse 1.6s ease-in-out infinite}
+@keyframes zuhdSpin{to{transform:rotate(360deg)}}
+@keyframes zuhdPulse{0%,100%{opacity:.55}50%{opacity:1}}
+</style>
 </head>
 <body>
+<div id="zuhd-loader" aria-hidden="true"><div class="zuhd-loader-ring"></div><div class="zuhd-loader-word">ZUHD</div></div>
+<script>
+(function () {
+    var done = false;
+    function hide() {
+        if (done) return;
+        done = true;
+        var l = document.getElementById('zuhd-loader');
+        if (!l) return;
+        l.classList.add('zuhd-loader-hide');
+        setTimeout(function () { l.remove(); }, 500);
+    }
+    window.addEventListener('load', hide);
+    setTimeout(hide, 3500); // failsafe: never trap the user behind the loader
+})();
+</script>
+
     <nav><div id="navbar"></div></nav>
 
     <div class="policy-hero">

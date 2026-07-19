@@ -542,6 +542,23 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
     }
    </style>
  <body>
+<div id="zuhd-loader" aria-hidden="true"><div class="zuhd-loader-ring"></div><div class="zuhd-loader-word">ZUHD</div></div>
+<script>
+(function () {
+    var done = false;
+    function hide() {
+        if (done) return;
+        done = true;
+        var l = document.getElementById('zuhd-loader');
+        if (!l) return;
+        l.classList.add('zuhd-loader-hide');
+        setTimeout(function () { l.remove(); }, 500);
+    }
+    window.addEventListener('load', hide);
+    setTimeout(hide, 3500); // failsafe: never trap the user behind the loader
+})();
+</script>
+
     <!-- Navigation -->
      <nav>
       <div id="navbar"></div>
@@ -549,7 +566,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
     <!-- Hero Carousel -->
     <section class="zuhd-hero" id="zuhdHero" aria-label="Zuhd Guidance highlights">
         <div class="zuhd-hero-slide is-active" data-slide="video">
-            <video class="zuhd-hero-media" autoplay muted loop playsinline preload="auto" id="heroVideo" poster="banners/hero-banner-01.png"></video>
+            <video class="zuhd-hero-media" autoplay muted loop playsinline preload="auto" id="heroVideo" poster="banners/hero-banner-01.jpg"></video>
             <div class="zuhd-hero-overlay"></div>
             <div class="zuhd-hero-caption">
                 <h1>ZUHD GUIDANCE</h1>
@@ -557,7 +574,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
             </div>
         </div>
         <div class="zuhd-hero-slide" data-slide="banner1">
-            <img class="zuhd-hero-media" src="banners/hero-banner-01.png" alt="Zuhd Guidance — Islamic knowledge and real conversations" loading="lazy">
+            <img class="zuhd-hero-media" src="banners/hero-banner-01.jpg" alt="Zuhd Guidance — Islamic knowledge and real conversations" loading="lazy">
             <div class="zuhd-hero-overlay"></div>
             <div class="zuhd-hero-caption">
                 <p class="zuhd-hero-kicker">Authentic Knowledge</p>
@@ -567,7 +584,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
             </div>
         </div>
         <div class="zuhd-hero-slide" data-slide="banner2">
-            <img class="zuhd-hero-media" src="banners/hero-banner-02.png" alt="Zuhd Guidance — lectures, workshops and community" loading="lazy">
+            <img class="zuhd-hero-media" src="banners/hero-banner-02.jpg" alt="Zuhd Guidance — lectures, workshops and community" loading="lazy">
             <div class="zuhd-hero-overlay"></div>
             <div class="zuhd-hero-caption">
                 <p class="zuhd-hero-kicker">For the Whole Family</p>
@@ -659,10 +676,10 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
             <div class="story-card" data-story="1">
                 <video
                     class="story-video"
-                    autoplay
                     muted
                     loop
                     playsinline
+                    preload="none"
                     poster="/placeholder.svg">
                     <source src="/01-Authentic Knowledge from Qualified Scholars.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -676,10 +693,10 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
             <div class="story-card" data-story="3">
                 <video
                     class="story-video"
-                    autoplay
                     muted
                     loop
                     playsinline
+                    preload="none"
                     poster="/placeholder.svg">
                     <source src="/03-Supporting Global Ummah Initiatives.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -693,10 +710,10 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
             <div class="story-card" data-story="4">
                 <video
                     class="story-video"
-                    autoplay
                     muted
                     loop
                     playsinline
+                    preload="none"
                     poster="/placeholder.svg">
                     <source src="/04-Designed for All Ages & Every Stage.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -710,10 +727,10 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
             <div class="story-card" data-story="5">
                 <video
                     class="story-video"
-                    autoplay
                     muted
                     loop
                     playsinline
+                    preload="none"
                     poster="/placeholder.svg">
                     <source src="/05-Innovation in Islamic Learning.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -734,7 +751,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
             <p class="zuhd-workshops-sub">Practical, scholar-led programs for the whole family</p>
             <div class="zuhd-workshops-grid">
                 <a href="/events.html" class="zuhd-workshop-card">
-                    <img src="banners/workshop-pre-ramadan.png" alt="Pre-Ramadan Workshop — prepare your heart and home for Ramadan" loading="lazy">
+                    <img src="banners/workshop-pre-ramadan.jpg" alt="Pre-Ramadan Workshop — prepare your heart and home for Ramadan" loading="lazy">
                     <div class="zuhd-workshop-info">
                         <h3>Pre-Ramadan Workshop</h3>
                         <p>Prepare spiritually and practically for the blessed month.</p>
@@ -742,7 +759,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
                     </div>
                 </a>
                 <a href="/events.html" class="zuhd-workshop-card">
-                    <img src="banners/workshop-raising-children.png" alt="Raising Muslim Children workshop" loading="lazy">
+                    <img src="banners/workshop-raising-children.jpg" alt="Raising Muslim Children workshop" loading="lazy">
                     <div class="zuhd-workshop-info">
                         <h3>Raising Muslim Children</h3>
                         <p>Guidance for parents nurturing faith in the next generation.</p>
@@ -757,7 +774,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
     <section class="zuhd-maktab" id="maktab">
         <div class="zuhd-section-inner zuhd-maktab-inner">
             <div class="zuhd-maktab-media">
-                <img src="banners/maktab-01.png" alt="After School Classes for Kids — Zuhd Maktab" loading="lazy">
+                <img src="banners/maktab-01.jpg" alt="After School Classes for Kids — Zuhd Maktab" loading="lazy">
             </div>
             <div class="zuhd-maktab-text">
                 <h2>After School Classes for Kids</h2>
@@ -938,7 +955,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
             <p class="zuhd-workshops-sub">Stay tuned — new scholars, lectures, and events on the way</p>
             <div class="zuhd-announce-grid">
                 <div class="zuhd-announce-card">
-                    <img src="banners/intl-scholars-coming-soon.png" alt="International scholars coming soon — stay tuned" loading="lazy">
+                    <img src="banners/intl-scholars-coming-soon.jpg" alt="International scholars coming soon — stay tuned" loading="lazy">
                     <div class="zuhd-announce-label">International Scholars</div>
                 </div>
                 <div class="zuhd-announce-card">
@@ -946,7 +963,7 @@ font-size: 2.5rem; /* Slightly larger for emphasis */
                     <div class="zuhd-announce-label">Mufti Abdur Rahman Mangera</div>
                 </div>
                 <div class="zuhd-announce-card">
-                    <img src="banners/lecture-coming-soon.png" alt="New lecture coming soon" loading="lazy">
+                    <img src="banners/lecture-coming-soon.jpg" alt="New lecture coming soon" loading="lazy">
                     <div class="zuhd-announce-label">New Lecture Series</div>
                 </div>
             </div>
@@ -1233,6 +1250,23 @@ class ZuhdHeroCarousel {
 
 document.addEventListener('DOMContentLoaded', () => {
     new ZuhdHeroCarousel();
+});
+
+// Lazy-play story videos only when they scroll into view (saves ~37MB upfront)
+document.addEventListener('DOMContentLoaded', () => {
+    const vids = document.querySelectorAll('.story-video');
+    if (!vids.length) return;
+    if (!('IntersectionObserver' in window)) {
+        vids.forEach(v => v.play().catch(() => {}));
+        return;
+    }
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) e.target.play().catch(() => {});
+            else e.target.pause();
+        });
+    }, { threshold: 0.2 });
+    vids.forEach(v => io.observe(v));
 });
  
 // Placeholder functions for existing functionality
